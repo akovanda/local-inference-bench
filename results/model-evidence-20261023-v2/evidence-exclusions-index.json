@@ -1,0 +1,73 @@
+[
+  {
+    "evidence": "Tachyon role study v1",
+    "included_in_817_stable_rows": false,
+    "interpretation": "Interrupted diagnostic mode; exposed free-output/parser behavior, not a completed five-model comparison.",
+    "paths": [
+      "results/tachyon-role-study-20261023-v1/study-status.json",
+      "results/tachyon-role-study-20261023-v1/source-pins.json",
+      "results/tachyon-role-study-20261023-v1/lfm-fast-profile-interrupt.json"
+    ],
+    "status": "failed"
+  },
+  {
+    "evidence": "Tachyon role study v2",
+    "included_in_817_stable_rows": false,
+    "interpretation": "Interrupted diagnostic mode superseded by the completed production-schema worker study.",
+    "paths": [
+      "results/tachyon-role-study-20261023-v2/study-status.json",
+      "results/tachyon-role-study-20261023-v2/source-pins.json",
+      "results/tachyon-role-study-20261023-v2/production-priority-interrupt.json"
+    ],
+    "status": "failed"
+  },
+  {
+    "evidence": "LFM2.6 fast parser probes",
+    "included_in_817_stable_rows": false,
+    "interpretation": "Preparatory free, JSON-object, closed-schema, and zero-budget parser probes; not ranked or normalized.",
+    "paths": [
+      "results/tachyon-study-20261023-v1/fast-parser-probes/"
+    ],
+    "status": "diagnostic_complete"
+  },
+  {
+    "evidence": "QNN readiness and compatibility",
+    "included_in_817_stable_rows": false,
+    "interpretation": "Platform/readiness evidence only; the calculator does not establish LLM inference.",
+    "paths": [
+      "results/tachyon-study-20261023-v1/qnn-readiness.json",
+      "results/tachyon-study-20261023-v1/qnn-llm-compatibility.json"
+    ],
+    "status": "readiness_only_not_llm_inference"
+  },
+  {
+    "evidence": "Tachyon model download and artifact receipts",
+    "included_in_817_stable_rows": false,
+    "interpretation": "Model size/hash/download provenance; not request-quality observations.",
+    "paths": [
+      "results/tachyon-study-20261023-v1/remote-evidence/",
+      "results/tachyon-role-study-20261023-v1/remote-evidence/",
+      "results/tachyon-role-study-20261023-v1/small-download-launch.json",
+      "results/tachyon-role-study-20261023-v1/small-download-plan.json"
+    ],
+    "status": "provenance_only"
+  },
+  {
+    "evidence": "Tachyon runtime build receipts",
+    "included_in_817_stable_rows": false,
+    "interpretation": "CPU/OpenCL runtime construction evidence; failed accelerator trials remain in the separate accelerator table.",
+    "paths": [
+      "results/tachyon-study-20261023-v1/opencl-runtime-build.json",
+      "results/tachyon-study-20261023-v1/opencl-generic-runtime-build.json",
+      "results/tachyon-worker-latency-20261023-v1/remote-artifact-verification.json"
+    ],
+    "status": "provenance_only"
+  },
+  {
+    "evidence": "Gemma follow-up",
+    "included_in_817_stable_rows": false,
+    "interpretation": "No result is included because this follow-up was deferred by the user.",
+    "paths": [],
+    "status": "user_deferred"
+  }
+]

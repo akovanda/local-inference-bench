@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "label": "Bonsai2 published non-thinking sampler",
+  "claim": "full_allowlisted_recipe",
+  "sources": [
+    "https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf"
+  ],
+  "sampler_overrides": {
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "min_p": 0.0,
+    "presence_penalty": 1.5,
+    "repeat_penalty": 1.0
+  },
+  "notes": "All six published non-thinking sampler values are explicit. Caller must request prose thinking none."
+}

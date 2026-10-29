@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "label": "LFM2.5 published temperature/top-k/repetition check",
+  "claim": "publisher_inspired",
+  "sources": [
+    "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B-GGUF"
+  ],
+  "sampler_overrides": {
+    "temperature": 0.1,
+    "top_k": 50,
+    "repeat_penalty": 1.05
+  },
+  "notes": "Published three settings supplied explicitly. Other active native defaults must be saved by the runner; output cap, seed, context and frozen prompts remain separate experimental controls."
+}

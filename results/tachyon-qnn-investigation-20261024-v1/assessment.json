@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-10-24T02:51:50.865768+00:00",
+  "user_question": "Can we solve the QNN path and get newer versions on Tachyon?",
+  "assessment": "Actual full LFM350M generation is now proved on Tachyon v68 under both QNN2.47 and QNN2.51, in isolated Ubuntu24 userspaces. Newer QNN2.50 also executes a small neural graph on the unchanged native OS. The larger LFM2.6 NPU export remains untested.",
+  "research_correction": {
+    "previous_report": "results/tachyon-study-20261023-v1/qnn-llm-compatibility.json",
+    "qualification": "The earlier no-ready-path finding was too broad beyond the official/upstream paths examined. Community v68 ONNX/QNN exports exist for LFM2.5-350M and Qwen3.5-0.8B. Their published results require independent Tachyon validation; this does not establish LFM2.6 QNN compatibility."
+  },
+  "runtime_evidence": [
+    {
+      "component": "QNN HTP 2.37",
+      "status": "actual_neural_graph_passed",
+      "evidence": "graph-probe/report.json",
+      "scope": "Quantized FullyConnected + ReLU; exact reference output, serialization and reload; not an LLM."
+    },
+    {
+      "component": "QNN HTP 2.50",
+      "status": "actual_neural_graph_passed",
+      "evidence": "graph-probe/sdk-2.50/report.json",
+      "scope": "Same neural graph, fresh 2.50 context; native Ubuntu20 compatible; not an LLM."
+    },
+    {
+      "component": "Genie 2.37 / 2.50 private host",
+      "status": "program_loading_passed",
+      "evidence": "genie-host/host-readiness.json",
+      "scope": "Isolated Ubuntu22/glibc2.35; Genie2.50 help/dependencies pass. QNN2.37 DSP calculator also passed; these are not language generation."
+    },
+    {
+      "component": "ORT1.27 + QNN EP2.3 (QNN2.47)",
+      "status": "container_and_neural_graph_preflight_passed",
+      "evidence": "ubuntu24-qnn-runtime-handoff-libatomic.json",
+      "scope": "Ubuntu24/Python3.12 with libatomic1; relevant libraries resolve and tiny 2.47 graph executes and reloads. Full LFM model qualification pending."
+    },
+    {
+      "component": "ORT1.31 + QNN EP2.7 (QNN2.51)",
+      "status": "actual_v68_language_generation_passed",
+      "evidence": "lfm350-pilot/latest-pair/htp-execution-proof.json",
+      "scope": "Fresh device contexts, semantic canary, explicit HTP/FastRPC proof and no CPU fallback. Three task answers remain weak; this is not a model-quality upgrade claim."
+    }
+  ],
+  "model_candidates": [
+    {
+      "model": "LFM2.5-350M",
+      "source": "https://github.com/PrismPhi/radxa-dragon-q6a-qcs6490-lfm2.5-350m-qnn-npu",
+      "official_base": "https://huggingface.co/LiquidAI/LFM2.5-350M",
+      "status": "qnn_generation_proved_three_pilot_tasks_completed",
+      "context_limit": 2048,
+      "precision": "A16W8 QDQ body plus rowwise int8 host embedding"
+    },
+    {
+      "model": "Qwen3.5-0.8B",
+      "source": "https://github.com/PrismPhi/radxa-dragon-q6a-qwen3.5-0.8b-qcs6490-qnn-npu",
+      "status": "published_community_candidate_not_tested_here"
+    },
+    {
+      "model": "LFM2.5-Encoder-350M-Prompt-Router",
+      "source": "https://huggingface.co/LiquidAI/LFM2.5-Encoder-350M-Prompt-Router",
+      "status": "official_task_specific_candidate_not_tested_here",
+      "scope": "Zero-shot routing head scores user-defined lanes in one encoder pass; not a generative summarizer."
+    },
+    {
+      "model": "LFM2.5-2.6B",
+      "source": "https://huggingface.co/LiquidAI/LFM2.5-2.6B-ONNX",
+      "status": "official_onnx_starting_point_inspected_no_qnn_export_test",
+      "evidence": "version-audit/official-onnx-graph-inspection.json"
+    }
+  ],
+  "os": {
+    "native": "Ubuntu20.04.6/glibc2.31/kernel5.4.219",
+    "native_os_modified": false,
+    "private_userspaces_tested": [
+      "Ubuntu22.04/glibc2.35",
+      "Ubuntu24.04/Python3.12"
+    ],
+    "full_new_os_source": "https://developer.particle.io/tachyon/software/ubuntu_24_04/overview",
+    "full_new_os_qualification": "Particle documents Ubuntu24 as beta with hardware gaps; no reflash was performed or required for the neural-graph proofs."
+  },
+  "scope": "This is a capability and setup investigation, not a quality leaderboard or a claimed LFM2.6 NPU speedup.",
+  "full_language_model_result": {
+    "model": "LFM2.5-350M community A16W8 export",
+    "sdk": "QNN2.47 via ORT1.27/QNN EP2.3",
+    "status": "complete",
+    "context_tokens": 2048,
+    "cold_server_init_seconds": 4.8167948317714036,
+    "cases": 3,
+    "semantic_passes": 1,
+    "weighted_decode_tokens_per_second": 13.10404194775199,
+    "median_ttft_seconds": 0.8890706920064986,
+    "provider_proof": {
+      "chunk": {
+        "cpu_execution_count": 0,
+        "profile": "/workspace/output/server-logs/openai_server_tachyon_lfm350_pilot/chunk_profile_2026-10-24_02-35-52_591.json",
+        "qnn_execution_count": 8
+      },
+      "decode": {
+        "cpu_execution_count": 0,
+        "profile": "/workspace/output/server-logs/openai_server_tachyon_lfm350_pilot/decode_profile_2026-10-24_02-35-54_528.json",
+        "qnn_execution_count": 43
+      }
+    },
+    "canary": {
+      "json_object": {
+        "answer": "Tokyo"
+      },
+      "normal_first_token_id": 40550,
+      "normal_text": "Tokyo",
+      "passed": true
+    },
+    "raw_evidence": "results/tachyon-qnn-investigation-20261024-v1/lfm350-pilot/container-pilot/pilot-result.json",
+    "quality_scope": "Three short pilot tasks, not a quality benchmark. Current artifact failed summary and routing checks; underlying original checkpoint quality is not established by this quantized-port test.",
+    "cpu_reference_status": "Unmeasured; the pinned community release omits the complete official Q8 checkpoint/helper needed by its reference path."
+  },
+  "pending_work": [
+    "No LFM2.6 NPU export has been produced or tested.",
+    "No broad quality validation of the community350M NPU artifact or official350M Prompt-Router has been performed."
+  ],
+  "latest_runtime_comparison": {
+    "status": "complete",
+    "summaries": [
+      {
+        "runtime": "ORT1.27 / QNN EP2.3 / QNN2.47",
+        "case_count": 3,
+        "automated_task_checks_passed": 1,
+        "cold_init_seconds": 4.8167948317714036,
+        "native_decode_tokens_per_second": 13.10404194775199,
+        "median_ttft_seconds": 0.8890706920064986,
+        "total_request_wall_seconds": 4.491673015523702,
+        "source": "results/tachyon-qnn-investigation-20261024-v1/lfm350-pilot/container-pilot/pilot-result.json"
+      },
+      {
+        "runtime": "ORT1.31 / QNN EP2.7 / QNN2.51",
+        "case_count": 3,
+        "automated_task_checks_passed": 0,
+        "cold_init_seconds": 4.549919310025871,
+        "native_decode_tokens_per_second": 14.398893827988273,
+        "median_ttft_seconds": 0.744843905325979,
+        "total_request_wall_seconds": 4.47606905689463,
+        "source": "results/tachyon-qnn-investigation-20261024-v1/lfm350-pilot/latest-pair/container-pilot/pilot-result.json"
+      }
+    ],
+    "htp_proof": "results/tachyon-qnn-investigation-20261024-v1/lfm350-pilot/latest-pair/htp-execution-proof.json",
+    "detailed_comparison": "results/tachyon-qnn-investigation-20261024-v1/lfm350-pilot/latest-pair/runtime-comparison.json",
+    "limitations": [
+      "Three short requests per runtime, one pass each; decode samples are very small.",
+      "Output texts differ, so throughput and TTFT deltas do not imply equivalent task completion gains.",
+      "Original CPU/Q8 reference was unavailable in the pinned community release; underlying original-checkpoint quality is not established by these quantized-port tests.",
+      "The latest summary is faithful but incomplete, despite failing the automated Thursday check.",
+      "QNN provider counts alone do not prove NPU; latest proof also records explicit HTP backend hash, mapped V68 stub/System/provider, FastRPC, and no QNN CPU library."
+    ]
+  },
+  "final_service": {
+    "model": "tachyon-lfm25-26b",
+    "backend": "CPU proven fast profile",
+    "pid": 3413396,
+    "verified_identity": {
+      "pid": 3413396,
+      "alive": true,
+      "start_ticks": 260658924,
+      "argv": [
+        "/external/device-workspace/runtime/llama-cpp-cpu/bin/llama-server",
+        "-m",
+        "/external/device-workspace/models/lfm25-26b/LFM2.5-2.6B-QAD-Q4_0.gguf",
+        "--alias",
+        "tachyon-lfm25-26b",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "18085",
+        "-c",
+        "16384",
+        "-np",
+        "1",
+        "-t",
+        "4",
+        "-tb",
+        "4",
+        "-b",
+        "512",
+        "-ub",
+        "128",
+        "-ngl",
+        "0",
+        "-ctxcp",
+        "32",
+        "-cms",
+        "8192",
+        "--cache-prompt",
+        "--jinja",
+        "--reasoning-format",
+        "deepseek",
+        "--reasoning",
+        "on",
+        "--reasoning-effort",
+        "low",
+        "--reasoning-budget",
+        "0",
+        "--threads-http",
+        "2"
+      ]
+    },
+    "receipt": "results/tachyon-qnn-investigation-20261024-v1/lfm350-pilot/latest-pair/restored-cpu-service.json",
+    "qnn_model_state": "Both tested stacks installed with compiled contexts; test containers exited after qualification."
+  }
+}

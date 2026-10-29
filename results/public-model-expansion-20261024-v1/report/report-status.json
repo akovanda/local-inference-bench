@@ -1,0 +1,21 @@
+{
+  "attempt_selection": "first_completed_or_truncated",
+  "catalog_path": "runtime/public-model-expansion-20261024-v1/profile-catalog.json",
+  "catalog_sha256": "0f484cffb5745008bc729cc6926158bccece24f6591a0caa756151a19598cb55",
+  "generated_at": "2026-10-24T13:50:17Z",
+  "generator_path": "runtime/public_model_expansion_report.py",
+  "generator_sha256": "2a1c33e8acb784efbcfaff9a2ba7063152e8a8032ecb26a707e1570e2666ed3a",
+  "manifest_path": "results/public-benchmark-pilot-20261023-v1/manifest.json",
+  "manifest_sha256": "758607e95961b95ca98bdb2bdf11342b961239973dfcff73ff424c3a69603039",
+  "phase": "partial",
+  "quality_policy": "official_grades_only; unknown remains unknown; no cross-suite pooling",
+  "queue_cap_cases": 0,
+  "queue_cases_error": 1,
+  "queue_cases_expected": 576,
+  "queue_cases_pending": 407,
+  "queue_cases_terminal": 168,
+  "queue_profiles_expected": 9,
+  "queue_profiles_terminal": 2,
+  "schema_version": 1,
+  "supervisor_status": "interrupted"
+}

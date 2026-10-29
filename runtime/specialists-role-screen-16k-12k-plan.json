@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "name": "specialists role-only 16K 12K-output screen",
+  "steps": [
+    {
+      "id": "quick_medium_12288",
+      "suite": "quick",
+      "thinking": "medium",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 12288,
+      "request_timeout": 3600,
+      "repeat": 1
+    }
+  ]
+}

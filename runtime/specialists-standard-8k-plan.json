@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "name": "Specialist study shared 8K quick and difficult regression tasks",
+  "steps": [
+    {
+      "id": "shared_quick",
+      "suite": "quick",
+      "thinking": "medium",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 512,
+      "request_timeout": 600,
+      "repeat": 1
+    },
+    {
+      "id": "shared_hard",
+      "suite": "hard",
+      "thinking": "medium",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 4096,
+      "request_timeout": 900,
+      "repeat": 1
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "catalog_id": "public-model-expansion-20261024-v1",
+  "review_status": "approved",
+  "reviewed_by": "root_requirements_owner",
+  "reviewed_at": "2026-10-24T04:00:00Z",
+  "manifest_sha256": "758607e95961b95ca98bdb2bdf11342b961239973dfcff73ff424c3a69603039",
+  "profile_policy": {
+    "non_oss_comparison_label": "matched T0/medium baseline",
+    "description": "The eight non-OSS profiles intentionally match the original public-pilot T0/medium scored request controls. They are comparison baselines, not publisher-optimal recipes.",
+    "serial_order": "Each model completes all 64 cases and isolated official grading before the next model loads.",
+    "preflight": "Exact 73728 placement, model alias health, and a transport smoke must pass before scored cases; smoke semantics are recorded but never gate readiness.",
+    "cap_failure_policy": "Context 73728, output 65536, and request timeout 21600 are never silently lowered."
+  },
+  "controls": {
+    "lfm25_original": "results/public-benchmark-pilot-20261023-v1/lfm25",
+    "oss20b_original_medium": "results/public-benchmark-pilot-20261023-v1/oss20b"
+  },
+  "profiles": [
+    {
+      "key": "oss20b_repaired",
+      "display_name": "GPT-OSS-20B repaired full64",
+      "model_name": "gpt-oss-20b-mxfp4",
+      "runtime_backend": "llama",
+      "managed_externally": true,
+      "external_handoff": "results/public-model-expansion-20261024-v1/oss-repair/handoff.json",
+      "comparison_label": "repaired OSS diagnostic-selected treatment (different decoding)",
+      "controls": {"context_tokens": 73728, "max_output_tokens": 65536, "request_timeout_seconds": 21600, "seed": 20261023},
+      "request_options": {"resolved_by": "oss-repair/handoff.json"},
+      "config_candidates": []
+    },
+    {
+      "key": "flash_next_iq3_s",
+      "display_name": "Qwen3.8 Flash Next IQ3_S",
+      "model_name": "qwen3.8-flash-next-iq3_s",
+      "runtime_backend": "strata",
+      "comparison_label": "matched T0/medium baseline",
+      "controls": {"context_tokens": 73728, "max_output_tokens": 65536, "request_timeout_seconds": 21600, "seed": 20261023},
+      "request_options": {"reasoning_effort": "medium", "temperature": 0.0},
+      "config_candidates": [{"label": "derived reserve1024 MTP0 exact72K", "path": "runtime/public-model-expansion-20261024-v1/flash-next-iq3_s-strata-72k.json"}]
+    },
+    {
+      "key": "flash_next_coder_iq1_m",
+      "display_name": "Qwen3.8 Flash Next Coder IQ1_M",
+      "model_name": "qwen3.8-flash-next-coder-iq1_m",
+      "runtime_backend": "strata",
+      "runtime_environment": {"STRATA_ROUTE_TAIL_SKIP": "0"},
+      "comparison_label": "matched T0/medium baseline",
+      "controls": {"context_tokens": 73728, "max_output_tokens": 65536, "request_timeout_seconds": 21600, "seed": 20261023},
+      "request_options": {"reasoning_effort": "medium", "temperature": 0.0},
+      "config_candidates": [{"label": "previously validated strict72K coder placement", "path": "runtime/public-model-expansion-20261024-v1/flash-next-coder-iq1_m-strata-72k.json"}]
+    },
+    {
+      "key": "kat_coder_v25_iq3_xxs",
+      "display_name": "KAT-Coder V2.5 Dev IQ3_XXS",
+      "model_name": "kat-coder-v2.5-dev-iq3_xxs",
+      "runtime_backend": "llama",
+      "comparison_label": "matched T0/medium baseline",
+      "controls": {"context_tokens": 73728, "max_output_tokens": 65536, "request_timeout_seconds": 21600, "seed": 20261023},
+      "request_options": {"reasoning_effort": "medium", "temperature": 0.0, "chat_template_thinking": "on"},
+      "config_candidates": [{"label": "validated q8KV CPU2 threads8 exact72K", "path": "runtime/public-model-expansion-20261024-v1/kat-coder-v25-iq3_xxs-llama-72k.json"}]
+    },
+    {
+      "key": "bonsai2_27b_pq2_0",
+      "display_name": "Ternary Bonsai 2 27B PQ2_0",
+      "model_name": "bonsai2-27b-pq2_0",
+      "runtime_backend": "llama",
+      "comparison_label": "matched T0/medium baseline",
+      "controls": {"context_tokens": 73728, "max_output_tokens": 65536, "request_timeout_seconds": 21600, "seed": 20261023},
+      "request_options": {"reasoning_effort": "medium", "temperature": 0.0, "chat_template_thinking": "on"},
+      "config_candidates": [{"label": "validated custom Prism all-GPU exact72K", "path": "runtime/public-model-expansion-20261024-v1/bonsai2-27b-pq2_0-llama-72k.json"}]
+    },
+    {
+      "key": "bonsai2_27b_ptq1_0",
+      "display_name": "Ternary Bonsai 2 27B PTQ1_0",
+      "model_name": "bonsai2-27b-ptq1_0",
+      "runtime_backend": "llama",
+      "comparison_label": "matched T0/medium baseline",
+      "controls": {"context_tokens": 73728, "max_output_tokens": 65536, "request_timeout_seconds": 21600, "seed": 20261023},
+      "request_options": {"reasoning_effort": "medium", "temperature": 0.0, "chat_template_thinking": "on"},
+      "config_candidates": [{"label": "validated custom Prism all-GPU exact72K", "path": "runtime/public-model-expansion-20261024-v1/bonsai2-27b-ptq1_0-llama-72k.json"}]
+    },
+    {
+      "key": "qwen36_35b_a3b_ud_q4_k_xl",
+      "display_name": "Qwen3.6 35B-A3B UD_Q4_K_XL",
+      "model_name": "qwen3.6-35b-a3b-ud-q4_k_xl",
+      "runtime_backend": "strata",
+      "comparison_label": "matched T0/medium baseline",
+      "controls": {"context_tokens": 73728, "max_output_tokens": 65536, "request_timeout_seconds": 21600, "seed": 20261023},
+      "request_options": {"reasoning_effort": "medium", "temperature": 0.0},
+      "config_candidates": [{"label": "validated MTP0 runtime derived exact72K", "path": "runtime/public-model-expansion-20261024-v1/qwen36-35b-a3b-q4-strata-72k.json"}]
+    },
+    {
+      "key": "qwen35_122b_a10b_ud_q4_k_xl_native",
+      "display_name": "Qwen3.5 122B-A10B UD_Q4_K_XL native llama",
+      "model_name": "qwen3.5-122b-a10b-ud-q4_k_xl",
+      "runtime_backend": "llama",
+      "comparison_label": "matched T0/medium baseline",
+      "controls": {"context_tokens": 73728, "max_output_tokens": 65536, "request_timeout_seconds": 21600, "seed": 20261023},
+      "request_options": {"reasoning_effort": "medium", "temperature": 0.0, "chat_template_thinking": "on"},
+      "config_candidates": [{"label": "native CPU-MoE q8KV exact72K", "path": "runtime/public-model-expansion-20261024-v1/qwen35-122b-a10b-q4-llama-72k.json"}]
+    },
+    {
+      "key": "qwen35_122b_a10b_ud_q4_k_xl_strata",
+      "display_name": "Qwen3.5 122B-A10B UD_Q4_K_XL Strata",
+      "model_name": "qwen3.5-122b-a10b-ud-q4_k_xl-strata-72k-cpu-experts",
+      "runtime_backend": "strata",
+      "comparison_label": "matched T0/medium baseline",
+      "controls": {"context_tokens": 73728, "max_output_tokens": 65536, "request_timeout_seconds": 21600, "seed": 20261023},
+      "request_options": {"reasoning_effort": "medium", "temperature": 0.0},
+      "config_candidates": [{"label": "isolated Strata CPU-experts exact72K", "path": "runtime/public-model-expansion-20261024-v1/qwen35-122b-a10b-q4-strata-72k.json"}]
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "name": "specialists role-only 16K high-budget screen",
+  "steps": [
+    {
+      "id": "quick_medium_8192",
+      "suite": "quick",
+      "thinking": "medium",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 8192,
+      "request_timeout": 2400,
+      "repeat": 1
+    }
+  ]
+}

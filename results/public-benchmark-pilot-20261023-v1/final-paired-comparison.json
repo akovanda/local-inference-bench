@@ -1,0 +1,1322 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-23T18:03:06.543484+00:00",
+  "manifest_sha256": "758607e95961b95ca98bdb2bdf11342b961239973dfcff73ff424c3a69603039",
+  "scope": "same frozen selected32 HumanEval+ and32 IFEval tasks, official enhanced code tests and strict prompt instruction-following grades. Not full benchmark leaderboards or summary-faithfulness tests. Models use their captured templates/reasoning profiles.",
+  "suites": [
+    {
+      "suite": "humanevalplus",
+      "case_count": 32,
+      "both_pass": 30,
+      "lfm_only_pass": 1,
+      "oss_only_pass": 0,
+      "both_fail": 1,
+      "lfm_faster_case_count": 0,
+      "paired_latency_ratio_lfm_over_oss_median": 2.1847017961117317,
+      "oss_output_tokens": 15348,
+      "lfm_output_tokens": 62489,
+      "oss_median_wall_seconds": 53.14326385199092,
+      "lfm_median_wall_seconds": 115.85620119853411,
+      "oss_cap_hits": 0,
+      "lfm_cap_hits": 0
+    },
+    {
+      "suite": "ifeval",
+      "case_count": 32,
+      "both_pass": 25,
+      "lfm_only_pass": 6,
+      "oss_only_pass": 1,
+      "both_fail": 0,
+      "lfm_faster_case_count": 19,
+      "paired_latency_ratio_lfm_over_oss_median": 0.7984899686053268,
+      "oss_output_tokens": 325002,
+      "lfm_output_tokens": 59171,
+      "oss_median_wall_seconds": 217.50829847843852,
+      "lfm_median_wall_seconds": 137.81858539092354,
+      "oss_cap_hits": 3,
+      "lfm_cap_hits": 0
+    }
+  ],
+  "per_case": [
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/102",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 848,
+        "wall_seconds": 111.4503698409535,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/d97dcdfd8a0bff7f/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1749,
+        "wall_seconds": 130.63552234694362,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/d97dcdfd8a0bff7f/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/11",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 473,
+        "wall_seconds": 62.938170661916956,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/ba2f4acae5a9d57f/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1400,
+        "wall_seconds": 105.98253614502028,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/ba2f4acae5a9d57f/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/112",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 463,
+        "wall_seconds": 59.18114616605453,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/ffd26aeb156f2a3b/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1291,
+        "wall_seconds": 103.84943355200812,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/ffd26aeb156f2a3b/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/113",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1199,
+        "wall_seconds": 157.27908635302447,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/5560bcc37877d0b0/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 3182,
+        "wall_seconds": 238.04460504185408,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/5560bcc37877d0b0/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/121",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 297,
+        "wall_seconds": 39.78237978904508,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/726f50cc4fdb822b/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1155,
+        "wall_seconds": 89.12771992199123,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/726f50cc4fdb822b/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/125",
+      "oss20b": {
+        "passed": false,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 508,
+        "wall_seconds": 67.6063469981309,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/4db76e9fada9f054/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 2857,
+        "wall_seconds": 209.56738712405786,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/4db76e9fada9f054/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/139",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 352,
+        "wall_seconds": 46.49786218395457,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/5e63c7500073ec52/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1422,
+        "wall_seconds": 113.39856408117339,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/5e63c7500073ec52/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/14",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 213,
+        "wall_seconds": 27.907053819159046,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/963267bc4e5e2c82/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 789,
+        "wall_seconds": 59.414725539973006,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/963267bc4e5e2c82/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/143",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 343,
+        "wall_seconds": 47.32326048309915,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/73647d1f760fc7a6/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1014,
+        "wall_seconds": 76.20142859406769,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/73647d1f760fc7a6/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/146",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 511,
+        "wall_seconds": 68.8641913169995,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/c819a7643b8e1984/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1674,
+        "wall_seconds": 123.1049967110157,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/c819a7643b8e1984/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/155",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 377,
+        "wall_seconds": 48.91477444092743,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/2d74a37df1f346e1/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1127,
+        "wall_seconds": 82.87067370302975,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/2d74a37df1f346e1/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/157",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 436,
+        "wall_seconds": 59.54770547384396,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/59eb8cd69a9aef06/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1044,
+        "wall_seconds": 76.42550964001566,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/59eb8cd69a9aef06/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/158",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 656,
+        "wall_seconds": 87.35220526298508,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/cfdf1eba8143f654/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1459,
+        "wall_seconds": 108.20042756898329,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/cfdf1eba8143f654/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/19",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 483,
+        "wall_seconds": 64.26664786995389,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/7b5e464ce3780827/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1374,
+        "wall_seconds": 103.88842270313762,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/7b5e464ce3780827/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/22",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 399,
+        "wall_seconds": 53.282213668106124,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/cc301d73c6c42631/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1349,
+        "wall_seconds": 98.76046148291789,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/cc301d73c6c42631/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/34",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 143,
+        "wall_seconds": 20.49252010602504,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/19fa3e9692bea7d4/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1045,
+        "wall_seconds": 81.45253420597874,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/19fa3e9692bea7d4/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/37",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 573,
+        "wall_seconds": 75.96284369099885,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/4d58b82570cbbb2c/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1835,
+        "wall_seconds": 139.68238940811716,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/4d58b82570cbbb2c/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/38",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 404,
+        "wall_seconds": 53.00431403587572,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/ac049a10d4c69a6a/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 2678,
+        "wall_seconds": 196.43629266810603,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/ac049a10d4c69a6a/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/41",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 539,
+        "wall_seconds": 71.37235860014334,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/b3e360ed26a9f21a/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 5006,
+        "wall_seconds": 370.23828589892946,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/b3e360ed26a9f21a/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/50",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 175,
+        "wall_seconds": 23.653896444942802,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/9eba2e57840c6467/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 2988,
+        "wall_seconds": 223.71041854983196,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/9eba2e57840c6467/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/52",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 142,
+        "wall_seconds": 20.300628929166123,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/df450ef6726c4dd6/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 647,
+        "wall_seconds": 47.3972439749632,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/df450ef6726c4dd6/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/54",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 586,
+        "wall_seconds": 76.53069240693003,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/a5713988c2cb65c7/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 3507,
+        "wall_seconds": 289.3015835841652,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/a5713988c2cb65c7/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/55",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 263,
+        "wall_seconds": 35.596982535906136,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/58ff48a93e326c3f/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1271,
+        "wall_seconds": 92.2747287589591,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/58ff48a93e326c3f/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/58",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 304,
+        "wall_seconds": 42.07530477899127,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/2b009e04c83e050a/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1284,
+        "wall_seconds": 96.85888730408624,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/2b009e04c83e050a/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/67",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 373,
+        "wall_seconds": 51.119469727855176,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/38f458158d34b7fb/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1567,
+        "wall_seconds": 121.17123913113028,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/38f458158d34b7fb/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/69",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 180,
+        "wall_seconds": 24.58115668501705,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/80503f9aec51b035/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1610,
+        "wall_seconds": 120.8305143089965,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/80503f9aec51b035/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/71",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 387,
+        "wall_seconds": 49.5907167410478,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/2a8f575950c3086e/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1358,
+        "wall_seconds": 104.71606563404202,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/2a8f575950c3086e/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/80",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 211,
+        "wall_seconds": 28.907994234003127,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/5a4ecec291dac254/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1800,
+        "wall_seconds": 132.1392691428773,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/5a4ecec291dac254/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/83",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 984,
+        "wall_seconds": 131.80606546299532,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/604a3eb3d2599a68/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 2164,
+        "wall_seconds": 160.91726128594019,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/604a3eb3d2599a68/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/86",
+      "oss20b": {
+        "passed": false,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 987,
+        "wall_seconds": 123.17049456108361,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/0dedbe601f628587/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": false,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 4676,
+        "wall_seconds": 355.94373186212033,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/0dedbe601f628587/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/9",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 196,
+        "wall_seconds": 27.492105304962024,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/c58bbfc44a0e1b33/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1568,
+        "wall_seconds": 118.31383831589483,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/c58bbfc44a0e1b33/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "humanevalplus",
+      "task_id": "HumanEval/93",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1343,
+        "wall_seconds": 179.04051149310544,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/humanevalplus/fd321c069b451190/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 4599,
+        "wall_seconds": 341.8307670119684,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/humanevalplus/fd321c069b451190/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "122",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1120,
+        "wall_seconds": 142.0986651359126,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/1be00341082e25c4/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 2257,
+        "wall_seconds": 167.3513734950684,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/1be00341082e25c4/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "1512",
+      "oss20b": {
+        "passed": false,
+        "status": "truncated",
+        "truncated": true,
+        "output_tokens": 65536,
+        "wall_seconds": 8953.859309091931,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/66c03337b22c301d/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 2194,
+        "wall_seconds": 162.4248340348713,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/66c03337b22c301d/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "2107",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 311,
+        "wall_seconds": 40.77690165815875,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/74e7091094989907/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1692,
+        "wall_seconds": 113.92673290194944,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/74e7091094989907/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "2142",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 2312,
+        "wall_seconds": 295.1403050678782,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/8c9089be2f18fb28/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 2018,
+        "wall_seconds": 136.26514618704095,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/8c9089be2f18fb28/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "2215",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 495,
+        "wall_seconds": 64.22451509116217,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/7de25656de2fdb7d/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1401,
+        "wall_seconds": 103.77988818008453,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/7de25656de2fdb7d/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "2216",
+      "oss20b": {
+        "passed": false,
+        "status": "truncated",
+        "truncated": true,
+        "output_tokens": 65536,
+        "wall_seconds": 8914.95792177599,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/5b12bb4e8bd8bc9e/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 2724,
+        "wall_seconds": 199.03999212593772,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/5b12bb4e8bd8bc9e/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "2284",
+      "oss20b": {
+        "passed": false,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 61539,
+        "wall_seconds": 8440.632944171084,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/659479bf8d744193/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 2044,
+        "wall_seconds": 150.8718876268249,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/659479bf8d744193/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "2311",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1895,
+        "wall_seconds": 239.08460160694085,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/ed0478973a6c233d/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 2249,
+        "wall_seconds": 193.88306195195764,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/ed0478973a6c233d/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "2355",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 683,
+        "wall_seconds": 91.07339704991318,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/017ae987199a49a1/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1822,
+        "wall_seconds": 139.37202459480613,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/017ae987199a49a1/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "2464",
+      "oss20b": {
+        "passed": false,
+        "status": "truncated",
+        "truncated": true,
+        "output_tokens": 65536,
+        "wall_seconds": 8861.860598515952,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/764228040735fc94/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 2459,
+        "wall_seconds": 182.48083922895603,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/764228040735fc94/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "2577",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 751,
+        "wall_seconds": 97.33020101091824,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/5dbb51ba631f2c78/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1137,
+        "wall_seconds": 76.50550849502906,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/5dbb51ba631f2c78/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "2585",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 460,
+        "wall_seconds": 59.99622739199549,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/385ad5955fc20f7f/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1710,
+        "wall_seconds": 114.78304539411329,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/385ad5955fc20f7f/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "2605",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1817,
+        "wall_seconds": 236.01662850100547,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/a81824dad073f33c/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 2937,
+        "wall_seconds": 222.4391610659659,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/a81824dad073f33c/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "2704",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 2910,
+        "wall_seconds": 368.46182964602485,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/6abb9da0b9c1fe2f/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 2656,
+        "wall_seconds": 197.91724104294553,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/6abb9da0b9c1fe2f/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "2765",
+      "oss20b": {
+        "passed": false,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1245,
+        "wall_seconds": 161.23134037200361,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/f11ca4a63fad2854/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 2432,
+        "wall_seconds": 164.6427778559737,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/f11ca4a63fad2854/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "2787",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 404,
+        "wall_seconds": 52.85810376401059,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/770e6f5e2f55c90a/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 804,
+        "wall_seconds": 53.51642750808969,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/770e6f5e2f55c90a/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "2798",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1750,
+        "wall_seconds": 226.71592136193067,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/158f3b1a355d5f64/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 2106,
+        "wall_seconds": 156.90548213990405,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/158f3b1a355d5f64/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "2817",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1784,
+        "wall_seconds": 226.82353463186882,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/8202c37e994f4722/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1447,
+        "wall_seconds": 106.38430933118798,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/8202c37e994f4722/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "2829",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 18785,
+        "wall_seconds": 2463.021887826035,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/ef0b489c33b4d90a/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1290,
+        "wall_seconds": 85.39155522803776,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/ef0b489c33b4d90a/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "2859",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 338,
+        "wall_seconds": 45.45244051911868,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/84961ee29c544077/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 761,
+        "wall_seconds": 56.93171182903461,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/84961ee29c544077/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "2997",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 901,
+        "wall_seconds": 120.60629124403931,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/3b05cf67849835e3/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 2551,
+        "wall_seconds": 186.9494941290468,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/3b05cf67849835e3/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "3071",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1686,
+        "wall_seconds": 222.9893131388817,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/2e0b3dc70916553a/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": false,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 2200,
+        "wall_seconds": 163.88571045105346,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/2e0b3dc70916553a/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "322",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 675,
+        "wall_seconds": 85.99855185789056,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/f10d91a7596bf5a6/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1311,
+        "wall_seconds": 109.06590940593742,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/f10d91a7596bf5a6/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "3224",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 7390,
+        "wall_seconds": 961.3757151130121,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/3e3176f322eb4627/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 950,
+        "wall_seconds": 71.16554920212366,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/3e3176f322eb4627/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "3281",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 2437,
+        "wall_seconds": 309.1332162891049,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/87d8e3aa624e9deb/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1348,
+        "wall_seconds": 103.18398580793291,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/87d8e3aa624e9deb/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "3294",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 834,
+        "wall_seconds": 107.21126266592182,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/ed4f9ab58560a9b7/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 2173,
+        "wall_seconds": 200.44560661399737,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/ed4f9ab58560a9b7/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "3315",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 3591,
+        "wall_seconds": 462.2346416229848,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/715da20ae91a9708/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1990,
+        "wall_seconds": 135.71850264212117,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/715da20ae91a9708/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "3323",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 7821,
+        "wall_seconds": 1009.5452402820811,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/7887567190d819e1/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 410,
+        "wall_seconds": 31.089599346043542,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/7887567190d819e1/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "3327",
+      "oss20b": {
+        "passed": false,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1487,
+        "wall_seconds": 193.63660014187917,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/b192c9bbefcbd7b0/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 2520,
+        "wall_seconds": 192.2695681140758,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/b192c9bbefcbd7b0/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "3434",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1638,
+        "wall_seconds": 212.02728381799534,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/5f395d07369071a5/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 2463,
+        "wall_seconds": 166.11474523390643,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/5f395d07369071a5/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "3494",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 614,
+        "wall_seconds": 80.64633279992267,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/fc952bb014fc5706/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1228,
+        "wall_seconds": 87.50175421079621,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/fc952bb014fc5706/attempt-0001/result.json"
+      }
+    },
+    {
+      "suite": "ifeval",
+      "task_id": "3629",
+      "oss20b": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 721,
+        "wall_seconds": 93.48887035809457,
+        "source": "results/public-benchmark-pilot-20261023-v1/oss20b/cases/ifeval/2bb1c90302bea604/attempt-0001/result.json"
+      },
+      "lfm25": {
+        "passed": true,
+        "status": "completed",
+        "truncated": false,
+        "output_tokens": 1887,
+        "wall_seconds": 128.45670865708962,
+        "source": "results/public-benchmark-pilot-20261023-v1/lfm25/cases/ifeval/2bb1c90302bea604/attempt-0001/result.json"
+      }
+    }
+  ]
+}

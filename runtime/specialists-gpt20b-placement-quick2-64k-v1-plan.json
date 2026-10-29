@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "name": "Conditional GPT20B placement quick2: exact canonical medium T0 shared quick controls,64Koutput, no extra setup",
+  "steps": [
+    {
+      "id": "quick_medium_65536",
+      "suite": "quick",
+      "thinking": "medium",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 65536,
+      "request_timeout": 21600,
+      "repeat": 1
+    }
+  ]
+}

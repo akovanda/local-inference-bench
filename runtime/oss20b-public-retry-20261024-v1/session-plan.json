@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "name": "OSS20B 73,728-context repair probe transport warmup before held diagnostic session",
+  "steps": [
+    {
+      "id": "transport-warmup",
+      "suite": "quick",
+      "cases": [
+        "quick_generation"
+      ],
+      "thinking": "low",
+      "temperature": 1.0,
+      "seed": 20261023,
+      "output_tokens": 128,
+      "request_timeout": 300,
+      "repeat": 1
+    }
+  ]
+}

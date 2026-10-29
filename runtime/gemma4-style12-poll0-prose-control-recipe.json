@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "label": "Canonical NONE prose temperature0.7 control for Style poll0",
+  "claim": "custom_experiment",
+  "sources": [],
+  "sampler_overrides": {
+    "temperature": 0.7
+  },
+  "notes": "Matches canonical primary prose request controls; unspecified sampler fields inherit unchanged native server defaults."
+}

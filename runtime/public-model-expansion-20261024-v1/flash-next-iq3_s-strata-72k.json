@@ -1,0 +1,28 @@
+{
+  "exe": "/external/storage/moe-bench/strata-build/strata",
+  "args": [
+    "--pack", "/external/storage/moe-bench/packs/flash-next-iq3_s",
+    "--native", "/external/storage/moe-bench/models/flash-next-IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00001-of-00002.gguf",
+    "--ple-gguf", "/external/storage/moe-bench/models/flash-next-IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00002-of-00002.gguf",
+    "--ple-io", "ram",
+    "--max-context", "73728",
+    "--prefill", "auto",
+    "--expert-profile", "vendor/strata/data/expert-profile.bin",
+    "--expert-cache", "auto",
+    "--spec", "4",
+    "--suffix-draft", "0",
+    "--vram-reserve-mib", "1024"
+  ],
+  "cwd": "vendor/strata",
+  "tokenizer": "/external/storage/moe-bench/packs/flash-next-iq3_s/tokenizer",
+  "model_name": "qwen3.8-flash-next-iq3_s",
+  "arch": "qwen4exp",
+  "log": "results/public-model-expansion-20261024-v1-flash-next-iq3_s-engine.log",
+  "lib_dirs": ["/usr/local/cuda-13.0/lib64"],
+  "host": "127.0.0.1",
+  "port": 18080,
+  "open_browser": false,
+  "sampling": {"temperature": 0, "presence_penalty": 0},
+  "derived_from": "runtime/flash-next-reserve1024-mtp0-32k.json",
+  "placement_note": "Same proven reserve1024/MTP0 profile with only max-context raised to the required 73728; scored work starts only after load plus transport smoke."
+}

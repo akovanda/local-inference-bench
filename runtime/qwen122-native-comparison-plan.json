@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "name": "Qwen122 native CPU MoE baseline before adaptive thinking and context trials",
+  "steps": [
+    {
+      "id": "quick-none-512",
+      "suite": "quick",
+      "thinking": "none",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 512,
+      "request_timeout": 600,
+      "repeat": 2
+    },
+    {
+      "id": "anchors-none-2048",
+      "suite": "quality",
+      "cases": ["quality_merge_intervals", "quality_stable_toposort"],
+      "thinking": "none",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 2048,
+      "request_timeout": 1200,
+      "repeat": 1
+    },
+    {
+      "id": "hard-none-4096",
+      "suite": "hard",
+      "thinking": "none",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 4096,
+      "request_timeout": 1800,
+      "repeat": 1
+    }
+  ]
+}

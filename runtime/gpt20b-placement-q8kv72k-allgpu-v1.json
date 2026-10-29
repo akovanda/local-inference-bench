@@ -1,0 +1,62 @@
+{
+  "args": [
+    "--gpu-layers",
+    "all",
+    "--parallel",
+    "1",
+    "--jinja",
+    "--chat-template-file",
+    "vendor/strata/third_party/llama.cpp/models/templates/openai-gpt-oss-120b.jinja",
+    "--no-webui",
+    "--no-slots",
+    "--fit",
+    "off",
+    "--cache-type-k",
+    "q8_0",
+    "--cache-type-v",
+    "q8_0",
+    "--flash-attn",
+    "on"
+  ],
+  "artifact_manifest": "../results/gpt20b-llama-artifact.json",
+  "context": 73728,
+  "host": "127.0.0.1",
+  "lib_dirs": [
+    "/external/storage/moe-bench/ollama-0.40.6/lib/ollama",
+    "/external/storage/moe-bench/ollama-0.40.6/lib/ollama/cuda_v13"
+  ],
+  "model": "/external/models/run/ollama/models/blobs/sha256-e7b273f9636059a689e3ddcab3716e4f65abe0143ac978e46673ad0e52d09efb",
+  "model_name": "gpt-oss-20b-mxfp4",
+  "port": 18081,
+  "schema_version": 1,
+  "server": "/external/storage/moe-bench/ollama-0.40.6/lib/ollama/llama-server",
+  "shards": [
+    {
+      "name": "sha256-e7b273f9636059a689e3ddcab3716e4f65abe0143ac978e46673ad0e52d09efb",
+      "sha256": "e7b273f9636059a689e3ddcab3716e4f65abe0143ac978e46673ad0e52d09efb",
+      "size": 13793422144
+    }
+  ],
+  "study_variant": {
+    "purpose": "Conditional same-weight GPT20B placement diagnostic; not baseline and not selected before actual eligibility.",
+    "parent_config": "runtime/gpt20b-llama-specialists-72k-wide64k.json",
+    "parent_config_sha256": "c252e8c6172e26afdcade5d2403c7dc73d063ea57aec24ed54e4f23dffee9700",
+    "source_plan": {
+      "path": "results/specialists-conditional-placement-diagnostic-plan-v3.json",
+      "sha256": "8935de85c4c00e76e9bee03e3c38ad8a75840505b51675740cfa718c6175762a",
+      "size": 2952
+    },
+    "placement_variant": "q8KV72K_allGPU",
+    "all_gpu_fit_claimed": false,
+    "output_cap_unchanged": 65536,
+    "per_request_timeout_seconds": 21600,
+    "launch_preconditions": [
+      "Complete actual matching20B main12 and verified owned cleanup/original restoration.",
+      "Actual CPU weight/layer/expert offload, or strict startup CUDA OOM followed by successful auto placement.",
+      "For rightsized68K: prove every frozen actual chat/template input +65536output +1024reserve <=69632."
+    ],
+    "native_quick_TPS_gate_fraction": 0.05,
+    "maximum_quality_continuations": 1,
+    "no_generation_or_loading_performed": true
+  }
+}

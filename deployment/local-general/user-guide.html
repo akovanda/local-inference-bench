@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Local General — service integration guide</title>
+<style>
+:root{--bg:#f6f7fb;--panel:#fff;--ink:#192436;--muted:#526174;--line:#dbe2eb;--accent:#1359ae;--code:#eef2f8;--good:#18704b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}header,main,footer{max-width:1040px;margin:auto;padding:28px}header{padding-top:48px}h1{font-size:2.5rem;line-height:1.15;margin:.35em 0}h2{font-size:1.65rem;margin-top:2.4em;scroll-margin-top:24px}h3{font-size:1.13rem;margin-top:1.7em}p{max-width:84ch}a{color:var(--accent)}nav{display:flex;gap:10px 22px;flex-wrap:wrap;padding:16px 0;border-bottom:1px solid var(--line)}nav a{text-decoration:none}.label{font-size:.8rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}.muted{color:var(--muted)}.badge{display:inline-block;border:1px solid var(--line);border-radius:30px;padding:3px 13px;font-size:.85rem}.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 24px;margin:20px 0}.callout{border-left:4px solid var(--accent);padding:8px 18px;background:var(--code)}code{background:var(--code);padding:.1em .3em;border-radius:4px;font-size:.9em;overflow-wrap:anywhere}pre{background:var(--code);padding:18px;border:1px solid var(--line);border-radius:8px;overflow:auto;font-size:.88rem;line-height:1.6}pre code{padding:0;overflow-wrap:normal}table{border-collapse:collapse;width:100%;margin:20px 0;font-size:.94rem}td,th{padding:12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{background:var(--code)}.scroll{overflow-x:auto}ol,ul{padding-left:25px}li{margin:.4em 0}footer{font-size:.9rem;color:var(--muted);border-top:1px solid var(--line);margin-top:40px}.ready{color:var(--good)}@media(prefers-color-scheme:dark){:root{--bg:#111824;--panel:#182233;--ink:#e2eaf5;--muted:#a9b7cb;--line:#354256;--accent:#8fbeff;--code:#202d40;--good:#7fdbb3}}@media(max-width:600px){header,main,footer{padding:20px}h1{font-size:2rem}.card{padding:14px}}
+</style>
+</head>
+<body>
+<header>
+<div class="label">Private model service · UCS</div>
+<h1>Local General</h1>
+<p>Connect applications to the local LFM 2.5 24B A2B model through one stable name: <strong><code>local-general</code></strong>. Use it for chat, summarization, structured extraction, and application-controlled tool use.</p>
+<span class="badge">Tailscale · API key required · <a href="/readyz">Check readiness</a></span>
+<nav aria-label="Contents"><a href="#connect">Connect</a><a href="#python">Python</a><a href="#streaming">Streaming</a><a href="#json">JSON</a><a href="#tools">Tools</a><a href="#ollama">Ollama clients</a><a href="#migration">Move from OSS 20B</a><a href="#limits">Limits</a><a href="#errors">Troubleshooting</a></nav>
+</header>
+<main>
+<section id="connect">
+<h2>Connect</h2>
+<p>Your device or service needs access to this Tailscale network. Ask the service owner for an API key, and store it in your application's secret settings.</p>
+<div class="card"><div class="scroll"><table>
+<tr><th>Setting</th><th>Value</th></tr>
+<tr><td>OpenAI-compatible base URL</td><td><code>https://device.example.invalid:8446/v1</code></td></tr>
+<tr><td>Ollama-compatible host</td><td><code>https://device.example.invalid:8446</code></td></tr>
+<tr><td>Model</td><td><code>local-general</code></td></tr>
+<tr><td>Authentication</td><td><code>Authorization: Bearer YOUR_API_KEY</code></td></tr>
+<tr><td>Guide to share</td><td><a href="https://device.example.invalid:8446/docs">https://device.example.invalid:8446/docs</a></td></tr>
+</table></div></div>
+<p>For an application running directly on UCS, the local base URL is <code>http://127.0.0.1:11441/v1</code>. Authentication is still required. Other devices should use the HTTPS address above; <code>localhost</code> would refer to their own device.</p>
+<pre><code>export LOCAL_GENERAL_BASE_URL='https://device.example.invalid:8446/v1'
+# Set LOCAL_GENERAL_API_KEY using the key supplied by the service owner.
+
+curl --fail-with-body "$LOCAL_GENERAL_BASE_URL/models" \
+  -H "Authorization: Bearer $LOCAL_GENERAL_API_KEY"
+
+curl --fail-with-body "$LOCAL_GENERAL_BASE_URL/chat/completions" \
+  -H "Authorization: Bearer $LOCAL_GENERAL_API_KEY" \
+  -H 'Content-Type: application/json' \
+  --data '{
+    "model": "local-general",
+    "messages": [{"role": "user", "content": "Summarize why request timeouts are useful in one sentence."}],
+    "max_tokens": 2048,
+    "temperature": 0,
+    "stream": false
+  }'</code></pre>
+<p>Read the answer from <code>choices[0].message.content</code>. Requests and conversation history stay on this model service; the caller controls any external tools or retrieval it adds.</p>
+</section>
+<section id="python">
+<h2>Python and JavaScript</h2>
+<p>Use an OpenAI-compatible Chat Completions client. The SDK's API key is this service's key.</p>
+<h3>Python</h3>
+<pre><code># pip install openai
+import os
+from openai import OpenAI
+
+client = OpenAI(
+    base_url=os.environ["LOCAL_GENERAL_BASE_URL"],
+    api_key=os.environ["LOCAL_GENERAL_API_KEY"],
+    timeout=900.0,
+    max_retries=0,
+)
+
+response = client.chat.completions.create(
+    model="local-general",
+    messages=[
+        {"role": "system", "content": "Summarize supplied facts accurately and concisely."},
+        {"role": "user", "content": "The deployment moved to Thursday. Priya owns the release. Summarize."},
+    ],
+    max_tokens=4096,
+    temperature=0,
+)
+print(response.choices[0].message.content)</code></pre>
+<h3>JavaScript / TypeScript</h3>
+<pre><code>// npm install openai
+import OpenAI from "openai";
+
+const client = new OpenAI({
+  baseURL: process.env.LOCAL_GENERAL_BASE_URL,
+  apiKey: process.env.LOCAL_GENERAL_API_KEY,
+  timeout: 900_000,
+  maxRetries: 0,
+});
+
+const response = await client.chat.completions.create({
+  model: "local-general",
+  messages: [{ role: "user", content: "Summarize the supplied incident notes: ..." }],
+  max_tokens: 4096,
+  temperature: 0,
+});
+console.log(response.choices[0].message.content);</code></pre>
+</section>
+<section id="streaming">
+<h2>Stream the final answer</h2>
+<p>The OpenAI-compatible route streams server-sent events. LFM reasons before answering, so final-answer text may begin after a delay. Reasoning is returned separately as <code>reasoning_content</code>; display only <code>delta.content</code> when you want the final answer.</p>
+<pre><code>stream = client.chat.completions.create(
+    model="local-general",
+    messages=[{"role": "user", "content": "Explain the supplied plan in three bullets: ..."}],
+    max_tokens=4096,
+    stream=True,
+    stream_options={"include_usage": True},
+)
+for chunk in stream:
+    if chunk.choices:
+        text = chunk.choices[0].delta.content
+        if text:
+            print(text, end="", flush=True)</code></pre>
+<p>Check the final <code>finish_reason</code>. A value of <code>length</code> means the token allowance was exhausted, possibly during reasoning. Increase <code>max_tokens</code> within the context limit if the task needs more room.</p>
+</section>
+<section id="json">
+<h2>Request structured JSON</h2>
+<p>Use <code>response_format</code> and still validate the result against your application schema. A schema constrains the format; it does not establish that the facts are correct.</p>
+<pre><code>import json
+
+response = client.chat.completions.create(
+    model="local-general",
+    messages=[{"role": "user", "content": "Extract owner and day: Priya will deploy on Thursday."}],
+    max_tokens=4096,
+    response_format={
+        "type": "json_schema",
+        "json_schema": {
+            "name": "release",
+            "strict": True,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "owner": {"type": "string"},
+                    "day": {"type": "string"},
+                },
+                "required": ["owner", "day"],
+                "additionalProperties": False,
+            },
+        },
+    },
+)
+if response.choices[0].finish_reason != "stop":
+    raise RuntimeError("The model did not finish; inspect the response before parsing.")
+result = json.loads(response.choices[0].message.content)
+print(result)</code></pre>
+</section>
+<section id="tools">
+<h2>Application-controlled tools</h2>
+<p>Send function definitions in <code>tools</code>. The model returns structured <code>tool_calls</code>; your application validates arguments, executes the allowed function, and sends a <code>tool</code> message back. This service does not execute tools.</p>
+<pre><code>import json
+
+messages = [{"role": "user", "content": "Look up the status of ticket INC-42."}]
+tools = [{
+    "type": "function",
+    "function": {
+        "name": "lookup_ticket",
+        "description": "Look up a ticket by its ID.",
+        "parameters": {
+            "type": "object",
+            "properties": {"ticket_id": {"type": "string"}},
+            "required": ["ticket_id"],
+            "additionalProperties": False,
+        },
+    },
+}]
+
+first = client.chat.completions.create(
+    model="local-general", messages=messages, tools=tools, max_tokens=4096,
+)
+message = first.choices[0].message
+messages.append(message.model_dump(exclude_none=True))
+for call in message.tool_calls or []:
+    arguments = json.loads(call.function.arguments)
+    # Replace this illustrative result with a validated call to your ticket service.
+    result = {"ticket_id": arguments["ticket_id"], "status": "resolved"}
+    messages.append({
+        "role": "tool", "tool_call_id": call.id,
+        "content": json.dumps(result),
+    })
+
+if message.tool_calls:
+    final = client.chat.completions.create(
+        model="local-general", messages=messages, tools=tools, max_tokens=4096,
+    )
+    print(final.choices[0].message.content)
+else:
+    print(message.content)</code></pre>
+<p>Keep tool access rules in the calling application. Use supplied documents, retrieval, or tools when an answer needs current or organization-specific facts.</p>
+</section>
+<section id="ollama">
+<h2>Ollama-style clients</h2>
+<p>Set the host to the service root, without <code>/v1</code>. Both <code>/api/chat</code> and <code>/api/generate</code> support normal JSON responses and newline-delimited JSON streams. The model stays loaded; <code>keep_alive</code> does not manage its lifecycle.</p>
+<pre><code># pip install ollama
+import os
+import ollama
+
+client = ollama.Client(
+    host="https://device.example.invalid:8446",
+    headers={"Authorization": f"Bearer {os.environ['LOCAL_GENERAL_API_KEY']}"},
+    timeout=900.0,
+)
+response = client.chat(
+    model="local-general",
+    messages=[{"role": "user", "content": "Summarize these notes: ..."}],
+    options={"num_predict": 4096, "temperature": 0},
+    think=False,
+    stream=False,
+)
+print(response.message.content)</code></pre>
+<p><strong><code>think=False</code> controls whether reasoning is shown in the response.</strong> LFM still performs reasoning internally, and those tokens still use its output allowance. A completed response reports <code>done: true</code>; <code>done_reason: "length"</code> indicates truncation.</p>
+<p>Supported generation options include <code>num_predict</code>, <code>temperature</code>, <code>top_p</code>, <code>top_k</code>, <code>min_p</code>, <code>repeat_penalty</code>, and <code>seed</code>. Use <code>format: "json"</code> or a JSON schema for structured responses. Unsupported material options return an error instead of silently changing behavior.</p>
+</section>
+<section id="migration">
+<h2>Move a service from OSS 20B</h2>
+<ol>
+<li>Point the service at the base URL appropriate for its client above and supply the API key.</li>
+<li>Set the requested model to <code>local-general</code>. For migration, this endpoint also accepts <code>gpt-oss-20b:64k</code> as an alias for <strong>LFM</strong>. That alias does not select OSS.</li>
+<li>Keep normal system/user/assistant messages. Remove manually embedded model tokens, GPT-specific stop strings, and assumptions about a particular tokenizer.</li>
+<li>Test a representative request and any JSON, streaming, or tool behavior your service uses. Recount token budgets with the new model.</li>
+<li>Check timeouts and retry policy. Budget for a queued request and model reasoning, and handle <code>429</code> with backoff.</li>
+</ol>
+<p>Compatibility values <code>reasoning_effort: "low"</code>, <code>"medium"</code>, and <code>"high"</code> are accepted and ignored by this gateway. They do not select a reasoning mode. The policy is also identified in response headers. Use <code>max_tokens</code> to bound total generation.</p>
+<p>Conversation history remains the caller's responsibility. Send the message history on each request; server-side conversation IDs and saved GPT token-state objects are not supported.</p>
+</section>
+<section id="limits">
+<h2>Service limits and behavior</h2>
+<div class="scroll"><table>
+<tr><th>Item</th><th>Provisioned setting</th></tr>
+<tr><td>Model</td><td>LFM 2.5 24B A2B, QAD-Q4_0; text input and output</td></tr>
+<tr><td>Context</td><td>73,728 tokens shared by the formatted input, history, reasoning, and answer</td></tr>
+<tr><td>Default / maximum output</td><td>8,192 / 65,536 tokens, subject to remaining context</td></tr>
+<tr><td>Concurrency</td><td>One active generation, up to 16 waiting requests</td></tr>
+<tr><td>Maximum queue wait</td><td>120 seconds</td></tr>
+<tr><td>Request body limit</td><td>8 MiB; byte size is a transport limit, not a token count</td></tr>
+<tr><td>Default temperature</td><td>0, matching the tested local baseline</td></tr>
+<tr><td>Timeout guidance</td><td>Start with 900 seconds for ordinary requests. Larger output allowances can require substantially longer.</td></tr>
+<tr><td>Supported APIs</td><td>Chat Completions, model listing, Ollama-style chat/generate and metadata</td></tr>
+<tr><td>Other APIs</td><td>Responses, embeddings, vision, model downloads, and model management are outside this service</td></tr>
+</table></div>
+<p>The completed local public test measured about 13.6 generated tokens/second, with 31/32 HumanEval+ enhanced passes and 31/32 IFEval strict prompt passes. This is a small, single-request benchmark; application latency depends on prompt length, reasoning, output length, and queueing. It is not a concurrency or long-context quality guarantee.</p>
+<p>Application request bodies and model output are not written to service logs. Operational logs contain lifecycle events and request metadata. Access to the service follows Tailscale network policy and the API key.</p>
+<p><strong>Model source:</strong> this service uses the QAD-Q4_0 file published in <a href="https://huggingface.co/LiquidAI/LFM2.5-24B-A2B-GGUF">Liquid AI's own model repository</a>. Its pinned revision and file SHA-256 are verified, and the backend checks the full file hash each time it starts. This establishes which release is running; it does not certify that any model is free of behavioral backdoors.</p>
+</section>
+<section id="errors">
+<h2>Troubleshooting</h2>
+<div class="scroll"><table>
+<tr><th>Symptom</th><th>What to check</th></tr>
+<tr><td>Cannot resolve or connect to the HTTPS host</td><td>Verify Tailscale is connected and this device can reach UCS on port 8446. Keep TLS certificate verification enabled.</td></tr>
+<tr><td><code>401</code></td><td>Supply the service API key in the Bearer header. An OpenAI cloud key is not this service's key.</td></tr>
+<tr><td><code>400</code></td><td>Read the error details: check model name, supported fields, options, token allowance, and message structure.</td></tr>
+<tr><td><code>404</code></td><td>Check the route and whether the client incorrectly added or omitted <code>/v1</code>.</td></tr>
+<tr><td><code>429</code></td><td>The queue is full or its wait budget was exceeded. Honor <code>Retry-After</code> when present and retry with backoff.</td></tr>
+<tr><td><code>502</code>, <code>503</code>, or <code>504</code></td><td>The backend may be loading, unavailable, or timed out. Check <a href="/readyz">readiness</a> and share the request ID with the service owner.</td></tr>
+<tr><td>Empty final answer or truncated JSON</td><td>Inspect <code>finish_reason</code> / <code>done_reason</code>. Reasoning can exhaust the output allowance before the final answer.</td></tr>
+<tr><td>Streaming response seems silent</td><td>The model may still be reasoning. Ensure your proxy allows streaming and your application distinguishes reasoning from answer text.</td></tr>
+</table></div>
+<p><a href="/healthz">Liveness</a> checks the gateway process. <a href="/readyz">Readiness</a> checks whether the model backend is available. Neither endpoint needs an API key; generation and model metadata do.</p>
+</section>
+<section>
+<h2>Reference</h2>
+<p>This is the integration contract for this deployed gateway. Upstream references: <a href="https://huggingface.co/LiquidAI/LFM2.5-24B-A2B">Liquid AI model documentation</a>, <a href="https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md">llama.cpp server</a>, <a href="https://github.com/openai/openai-python">OpenAI Python client</a>, and <a href="https://github.com/ollama/ollama-python">Ollama Python client</a>.</p>
+</section>
+</main>
+<footer>Local General service guide · Initial deployment 24 October 2026 · Canonical model: <code>local-general</code></footer>
+</body>
+</html>

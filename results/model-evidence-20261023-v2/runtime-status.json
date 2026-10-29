@@ -1,0 +1,92 @@
+{
+  "detail_counts": {
+    "accelerator_rows_separate": 6,
+    "detail_total": 817,
+    "legacy_complete_study_dashboard": 480,
+    "manual_summary_reviews_separate": 40,
+    "public_benchmark_t4_64case": 128,
+    "public_screen_tachyon_16case": 48,
+    "tachyon_worker_latency_ab": 24,
+    "tachyon_worker_latency_greedy_diagnostic": 16,
+    "tachyon_worker_latency_ordinary_default_probe": 1,
+    "tachyon_worker_production_schema_24": 120
+  },
+  "generated_at": "2026-10-23T18:09:15+00:00",
+  "limitations": [
+    "No quality score or rank is pooled across study families, suites, profiles, contexts, samplers, or token budgets.",
+    "The legacy 480-row dashboard retains its original quality semantics and full columns in the included byte-identical CSV.",
+    "T4 public tests use 73,728 context / 65,536 output caps; Tachyon public uses 16,384 / 8,192; worker and latency use 16,384 / 512.",
+    "Public benchmark rows use EvalPlus enhanced per-task pass or IFEval strict prompt pass; those definitions are not interchangeable.",
+    "Worker summary automatic pass covers closed facts, keys, and word limit only; free-prose grounding is in the separate 40-record manual review.",
+    "LFM2.6 Tachyon public screening is native thinking; worker/latency profiles use fast zero-reasoning-budget controls.",
+    "Latency rows repeat routing cases and cache states for diagnostics; they are not additional independent quality cases.",
+    "Weighted native TPS uses server-reported predicted_per_second weighted by predicted_ms; missing timings remain null.",
+    "Failed OpenCL compiler/offload rows have blank throughput, never zero. The QNN calculator is not LLM inference.",
+    "Matched T4 latency is task-dependent: the paired-case artifact must be used instead of inferring universal speed from total wall time.",
+    "The official LFM IFEval score remains 31/32; its sole miss is documented as a checker-specific Markdown emphasis criterion, with no semantic regrade substituted."
+  ],
+  "matched_t4_comparison": {
+    "scope": "same frozen selected32 HumanEval+ and32 IFEval tasks, official enhanced code tests and strict prompt instruction-following grades. Not full benchmark leaderboards or summary-faithfulness tests. Models use their captured templates/reasoning profiles.",
+    "source_path": "results/public-benchmark-pilot-20261023-v1/final-paired-comparison.json",
+    "suites": [
+      {
+        "both_fail": 1,
+        "both_pass": 30,
+        "case_count": 32,
+        "lfm_cap_hits": 0,
+        "lfm_faster_case_count": 0,
+        "lfm_median_wall_seconds": 115.85620119853411,
+        "lfm_only_pass": 1,
+        "lfm_output_tokens": 62489,
+        "oss_cap_hits": 0,
+        "oss_median_wall_seconds": 53.14326385199092,
+        "oss_only_pass": 0,
+        "oss_output_tokens": 15348,
+        "paired_latency_ratio_lfm_over_oss_median": 2.1847017961117317,
+        "suite": "humanevalplus"
+      },
+      {
+        "both_fail": 0,
+        "both_pass": 25,
+        "case_count": 32,
+        "lfm_cap_hits": 0,
+        "lfm_faster_case_count": 19,
+        "lfm_median_wall_seconds": 137.81858539092354,
+        "lfm_only_pass": 6,
+        "lfm_output_tokens": 59171,
+        "oss_cap_hits": 3,
+        "oss_median_wall_seconds": 217.50829847843852,
+        "oss_only_pass": 1,
+        "oss_output_tokens": 325002,
+        "paired_latency_ratio_lfm_over_oss_median": 0.7984899686053268,
+        "suite": "ifeval"
+      }
+    ]
+  },
+  "official_grader_caveats": {
+    "notes": [
+      {
+        "checker_source": "vendor/public-benchmarks/google-research-e6890f85757dd84e27ca6df2dd30651dafad28e0/instruction_following_eval/instructions.py",
+        "checker_source_line": 453,
+        "instruction_id": "detectable_format:number_highlighted_sections",
+        "interpretation": "This official failure measures the checker-specific emphasis convention, not whether the rap is coherent or whether there are three visually separated sections. No semantic regrade was substituted.",
+        "model": "lfm25",
+        "observation": "Answer contains three Markdown level-2 headings. Official checker counts nonempty asterisk-delimited emphasized spans; it does not count headings.",
+        "official_strict_pass": false,
+        "suite": "ifeval",
+        "task_id": "3071"
+      }
+    ],
+    "official_grades_unchanged": true,
+    "scope": "IFEval measures specified instruction/format compliance. It is not a factual knowledge or grounded-summary faithfulness score.",
+    "source_path": "results/public-benchmark-pilot-20261023-v1/official-grader-caveats.json"
+  },
+  "source_status": {
+    "legacy_dashboard": "complete_snapshot",
+    "t4_public": "complete",
+    "tachyon_latency": "complete",
+    "tachyon_public": "complete",
+    "tachyon_worker": "complete"
+  },
+  "status": "complete"
+}

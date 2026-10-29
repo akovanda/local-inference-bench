@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "local-inference-bench"
+version = "0.1.0"
+description = "Auditable local inference experiments, durable benchmark runners, and curated evidence"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+authors = [{name = "Andrew Kovanda"}]
+keywords = ["inference", "benchmark", "llama.cpp", "evaluation", "edge-ai"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=8,<9"]
+gateway = ["fastapi>=0.115,<1", "httpx>=0.27,<1", "uvicorn>=0.30,<1"]
+
+[project.urls]
+Repository = "https://github.com/akovanda/local-inference-bench"
+Issues = "https://github.com/akovanda/local-inference-bench/issues"
+
+[tool.setuptools]
+py-modules = ["bench", "bench_cases"]
+
+[tool.setuptools.packages.find]
+include = ["runtime*", "local_general*"]
+namespaces = true
+
+[tool.pytest.ini_options]
+testpaths = [
+  "tests/test_bench.py",
+  "tests/test_hard_cases.py",
+  "tests/test_specialist_cases.py",
+  "tests/test_public_benchmark_pilot.py",
+  "tests/test_public_model_expansion_report.py",
+  "tests/test_final_report.py",
+  "tests/test_public_evidence.py",
+  "tests/test_runtime_import_safety.py",
+]
+pythonpath = ["."]
+addopts = "-m 'not historical and not optional_upstream and not evidence_integration'"
+markers = [
+  "evidence_integration: real exported archive reconstruction; opt in with -m evidence_integration",
+  "historical: lab source/configuration pin tests; opt in with -m historical",
+  "optional_upstream: tests requiring excluded upstream runtime sources",
+]

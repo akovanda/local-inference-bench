@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "name": "GPT-OSS20B low-thinking specialist comparison at8K",
+  "steps": [
+    {
+      "id": "shared_quick_low",
+      "suite": "quick",
+      "thinking": "low",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 512,
+      "request_timeout": 600,
+      "repeat": 1
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "name": "Held-out coding and hard reasoning follow-up for selected EAGLE draft profile",
+  "steps": [
+    {
+      "id": "deep-merge-low-2048",
+      "suite": "quality",
+      "cases": [
+        "quality_deep_merge"
+      ],
+      "thinking": "low",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 2048,
+      "request_timeout": 900,
+      "repeat": 1
+    },
+    {
+      "id": "hard-low-4096",
+      "suite": "hard",
+      "thinking": "low",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 4096,
+      "request_timeout": 1200,
+      "repeat": 1
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "name": "Public pilot continuation readiness only, unscored JSON warmup",
+  "steps": [
+    {
+      "id": "ready-json",
+      "suite": "quick",
+      "cases": [
+        "quick_json_extract"
+      ],
+      "thinking": "medium",
+      "temperature": 0.0,
+      "seed": 20261023,
+      "output_tokens": 8192,
+      "request_timeout": 900.0
+    }
+  ]
+}

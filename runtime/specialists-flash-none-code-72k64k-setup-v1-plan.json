@@ -1,0 +1,19 @@
+{
+  "name": "Flash trained NONE-code comparison sole resident setup generation",
+  "schema_version": 1,
+  "steps": [
+    {
+      "cases": [
+        "quick_json_extract"
+      ],
+      "id": "resident_setup_json_none_256",
+      "output_tokens": 256,
+      "repeat": 1,
+      "request_timeout": 180,
+      "seed": 0,
+      "suite": "quick",
+      "temperature": 0,
+      "thinking": "none"
+    }
+  ]
+}

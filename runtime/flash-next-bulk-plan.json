@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "name": "Flash single-load baseline; hold for adaptive thinking and context tests",
+  "steps": [
+    {
+      "id": "quick-none-512",
+      "suite": "quick",
+      "thinking": "none",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 512,
+      "request_timeout": 300,
+      "repeat": 1
+    },
+    {
+      "id": "anchors-none-2048",
+      "suite": "quality",
+      "cases": ["quality_merge_intervals", "quality_stable_toposort"],
+      "thinking": "none",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 2048,
+      "request_timeout": 650,
+      "repeat": 1
+    },
+    {
+      "id": "hard-none-4096",
+      "suite": "hard",
+      "thinking": "none",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 4096,
+      "request_timeout": 1200,
+      "repeat": 1
+    }
+  ]
+}

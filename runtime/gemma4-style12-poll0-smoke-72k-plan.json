@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "name": "Style poll0 short NONE JSON infrastructure smoke before eligible canonical full-cap prose3",
+  "steps": [
+    {
+      "id": "poll0_smoke_json_none_256",
+      "suite": "quick",
+      "cases": [
+        "quick_json_extract"
+      ],
+      "thinking": "none",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 256,
+      "request_timeout": 180,
+      "repeat": 1
+    }
+  ]
+}

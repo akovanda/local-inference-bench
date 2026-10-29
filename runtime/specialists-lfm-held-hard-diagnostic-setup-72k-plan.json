@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "name": "LFM72K held diagnostic setup, single short known-fitting quick repeat",
+  "steps": [
+    {
+      "id": "resident_setup_quick_4096",
+      "suite": "quick",
+      "cases": [
+        "quick_generation"
+      ],
+      "thinking": "medium",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 4096,
+      "request_timeout": 600,
+      "repeat": 1
+    }
+  ]
+}

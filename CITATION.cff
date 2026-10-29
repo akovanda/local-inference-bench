@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software or its curated evidence, cite this release and the relevant upstream benchmarks."
+type: software
+title: "Local Inference Bench"
+authors:
+  - family-names: Kovanda
+    given-names: Andrew
+version: 0.1.0
+license: MIT
+repository-code: "https://github.com/akovanda/local-inference-bench"
+abstract: >-
+  Durable local inference benchmark runners and a curated evidence archive
+  for NVIDIA T4 and Particle Tachyon experiments. Results retain their study,
+  task, profile, grading, and hardware boundaries.
+keywords:
+  - local inference
+  - evaluation
+  - edge AI

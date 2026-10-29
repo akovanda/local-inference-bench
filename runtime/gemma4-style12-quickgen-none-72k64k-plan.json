@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "name": "Style matched thinking OFF diagnostic for actual full64K no-final quick-generation failure",
+  "steps": [
+    {
+      "id": "quick_generation_none_65536",
+      "suite": "quick",
+      "thinking": "none",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 65536,
+      "request_timeout": 21600,
+      "repeat": 1,
+      "cases": [
+        "quick_generation"
+      ]
+    }
+  ]
+}

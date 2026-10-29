@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "name": "Flash default-profile thinking, context, and per-request acceleration followups",
+  "steps": [
+    {
+      "id": "quick-none-512",
+      "suite": "quick",
+      "thinking": "none",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 512,
+      "request_timeout": 300,
+      "repeat": 1
+    }
+  ]
+}

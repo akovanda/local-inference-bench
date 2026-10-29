@@ -1,0 +1,56 @@
+name: Portable checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  portable:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Create isolated Python environment
+        run: |
+          python3 --version
+          python3 -m venv .venv
+          .venv/bin/python -m pip install -e '.[test]'
+      - name: Compile source and inspect entry points
+        run: |
+          .venv/bin/python -m compileall -q bench.py bench_cases.py runtime local_general tools
+          .venv/bin/python bench.py --list-cases
+          .venv/bin/python -m runtime.model_evidence_report_20261023 --help
+          .venv/bin/python -m runtime.public_model_expansion_report --help
+          .venv/bin/python -m runtime.public_benchmark_pilot --help
+      - name: Run portable fixture tests
+        run: |
+          .venv/bin/python -m pytest -q \
+            tests/test_bench.py \
+            tests/test_hard_cases.py \
+            tests/test_specialist_cases.py \
+            tests/test_public_benchmark_pilot.py \
+            tests/test_public_model_expansion_report.py \
+            tests/test_final_report.py \
+            tests/test_public_evidence.py \
+            tests/test_runtime_import_safety.py
+
+  gateway:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Test the optional gateway
+        run: |
+          python3 -m venv .venv
+          .venv/bin/python -m pip install -e '.[test,gateway]'
+          .venv/bin/python -m pytest -q tests/test_local_general.py

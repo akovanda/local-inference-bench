@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "name": "Specialist study quick screen before role-specific tasks",
+  "steps": [
+    {
+      "id": "shared_quick",
+      "suite": "quick",
+      "thinking": "medium",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 512,
+      "request_timeout": 600,
+      "repeat": 1
+    }
+  ]
+}

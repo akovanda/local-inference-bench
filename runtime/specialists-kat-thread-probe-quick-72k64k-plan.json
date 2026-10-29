@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "name": "KAT thread8 speed probe: same two frozen T0 medium quick tasks,73728context/65536output",
+  "steps": [
+    {
+      "id": "quick_medium_65536",
+      "suite": "quick",
+      "thinking": "medium",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 65536,
+      "request_timeout": 21600,
+      "repeat": 1
+    }
+  ]
+}

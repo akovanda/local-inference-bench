@@ -1,0 +1,43 @@
+{
+  "args": [
+    "--gpu-layers",
+    "auto",
+    "--parallel",
+    "1",
+    "--jinja",
+    "--no-webui",
+    "--no-slots"
+  ],
+  "artifact_manifest": "../results/lfm25-qad-q4_0-artifact.json",
+  "context": 16384,
+  "host": "127.0.0.1",
+  "lib_dirs": [
+    "/external/storage/moe-bench/ollama-0.40.6/lib/ollama",
+    "/external/storage/moe-bench/ollama-0.40.6/lib/ollama/cuda_v13"
+  ],
+  "model": "/external/storage/moe-bench/models/lfm25-qad-q4_0/LFM2.5-24B-A2B-QAD-Q4_0.gguf",
+  "model_name": "lfm2.5-24b-a2b-qad-q4_0",
+  "placement": {
+    "all_gpu_fit_claimed": false,
+    "measurement_required": [
+      "actual_gpu_layer_count",
+      "peak_vram_bytes"
+    ],
+    "policy": "auto_best_fit"
+  },
+  "port": 18081,
+  "runtime_validation": {
+    "inference_validated": false,
+    "llama_cpp_revision": "620d2225cc436ab0b001e3200e590e3b286ef9ab",
+    "load_validated": false
+  },
+  "schema_version": 1,
+  "server": "/external/storage/moe-bench/ollama-0.40.6/lib/ollama/llama-server",
+  "shards": [
+    {
+      "name": "LFM2.5-24B-A2B-QAD-Q4_0.gguf",
+      "sha256": "d1c03f73ecaf61017d70419eec9e5dc0b05d50ae26c23d522829b934fbabf8a5",
+      "size": 13578190880
+    }
+  ]
+}

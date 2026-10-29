@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "name": "Specialists remaining primary cohort: 72Kcontext/64Koutput",
+  "steps": [
+    {
+      "id": "quick_medium_65536",
+      "suite": "quick",
+      "thinking": "medium",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 65536,
+      "request_timeout": 21600,
+      "repeat": 1
+    },
+    {
+      "id": "hard_medium_65536",
+      "suite": "hard",
+      "thinking": "medium",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 65536,
+      "request_timeout": 21600,
+      "repeat": 1
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "models": {
+    "kat-coder-v2.5-dev-iq3_xxs": [
+      {
+        "group": "code",
+        "recipe": "runtime/specialist-sampler-recipes/kat-thinking-api-example-native.json",
+        "suffix": "kat-publisher-code"
+      },
+      {
+        "group": "code",
+        "recipe": "runtime/specialist-sampler-recipes/shared-specialist-code-temperature-zero.json",
+        "suffix": "kat-code-none-shared-t0",
+        "code_thinking": "none"
+      },
+      {
+        "group": "code",
+        "recipe": "runtime/specialist-sampler-recipes/kat-nonthinking-code-api-example-native.json",
+        "suffix": "kat-publisher-code-none",
+        "code_thinking": "none"
+      }
+    ],
+    "gemma-4-12b-styletune-q5_k_m": [
+      {
+        "group": "prose",
+        "recipe": "runtime/specialist-sampler-recipes/styletune-prose-author-partial.json",
+        "suffix": "styletune-publisher-prose",
+        "prose_thinking": "none"
+      }
+    ],
+    "bonsai2-27b-pq2_0": [
+      {
+        "group": "code",
+        "recipe": "runtime/specialist-sampler-recipes/bonsai2-thinking-publisher.json",
+        "suffix": "bonsai-pq2-0-publisher-code"
+      },
+      {
+        "group": "code",
+        "recipe": "runtime/specialist-sampler-recipes/shared-specialist-code-temperature-zero.json",
+        "suffix": "bonsai-pq2-0-code-none-shared-t0",
+        "code_thinking": "none"
+      },
+      {
+        "group": "prose",
+        "recipe": "runtime/specialist-sampler-recipes/bonsai2-prose-publisher.json",
+        "suffix": "bonsai-pq2-0-publisher-prose",
+        "prose_thinking": "none"
+      }
+    ],
+    "bonsai2-27b-ptq1_0": [
+      {
+        "group": "code",
+        "recipe": "runtime/specialist-sampler-recipes/bonsai2-thinking-publisher.json",
+        "suffix": "bonsai-ptq1-0-publisher-code"
+      },
+      {
+        "group": "code",
+        "recipe": "runtime/specialist-sampler-recipes/shared-specialist-code-temperature-zero.json",
+        "suffix": "bonsai-ptq1-0-code-none-shared-t0",
+        "code_thinking": "none"
+      },
+      {
+        "group": "prose",
+        "recipe": "runtime/specialist-sampler-recipes/bonsai2-prose-publisher.json",
+        "suffix": "bonsai-ptq1-0-publisher-prose",
+        "prose_thinking": "none"
+      }
+    ]
+  }
+}

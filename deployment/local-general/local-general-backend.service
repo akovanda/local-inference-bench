@@ -1,0 +1,23 @@
+[Unit]
+Description=Local General pinned LFM 2.5 24B GPU backend
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=600
+StartLimitBurst=5
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/local-inference-bench
+ExecStart=/opt/local-inference-bench/.venv/bin/python /opt/local-inference-bench/deployment/local-general/run_backend.py --config /opt/local-inference-bench/deployment/local-general/lfm-backend.json
+Restart=on-failure
+RestartSec=15
+TimeoutStopSec=120
+KillMode=mixed
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target

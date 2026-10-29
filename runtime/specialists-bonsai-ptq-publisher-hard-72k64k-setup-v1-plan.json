@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "name": "Bonsai PTQ held publisher-hard setup: repeated original JSON quick, NONE; counts as one generation",
+  "steps": [
+    {
+      "id": "resident_setup_json_none_65536",
+      "suite": "quick",
+      "cases": [
+        "quick_json_extract"
+      ],
+      "thinking": "none",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 65536,
+      "request_timeout": 21600,
+      "repeat": 1
+    }
+  ]
+}

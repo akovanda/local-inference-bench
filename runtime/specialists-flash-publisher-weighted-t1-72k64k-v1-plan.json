@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "name": "One posthoc Flash publisher T1 weighted-interval diagnostic, same frozen prompt and72K64K budgets",
+  "steps": [
+    {
+      "id": "publisher_weighted_medium_t1_65536",
+      "suite": "hard",
+      "cases": [
+        "hard_weighted_intervals"
+      ],
+      "thinking": "medium",
+      "temperature": 1.0,
+      "seed": 0,
+      "output_tokens": 65536,
+      "request_timeout": 21600,
+      "repeat": 1
+    }
+  ]
+}

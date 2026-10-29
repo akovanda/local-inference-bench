@@ -1,0 +1,16 @@
+{
+  "container": "local-codex-ollama-cpu",
+  "originally_running": true,
+  "original_image": "sha256:f6722249524a681e2862797973f8a808abf4ada2ae166023b15b56f7398bad9e",
+  "endpoint": "http://127.0.0.1:11436",
+  "model": "gpt-oss-20b:64k",
+  "loaded_context": 32768,
+  "model_store": "/external/models/run/ollama",
+  "server_environment": {
+    "OLLAMA_HOST": "0.0.0.0:11434",
+    "OLLAMA_KEEP_ALIVE": "-1",
+    "OLLAMA_NUM_PARALLEL": "1",
+    "OLLAMA_CONTEXT_LENGTH": "16384"
+  },
+  "note": "Captured from narrowly scoped Docker inspection, API ps, and ollama show. Preserve this existing container; do not recreate or alter it."
+}

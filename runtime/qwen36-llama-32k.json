@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "server": "/external/storage/moe-bench/ollama-0.40.6/lib/ollama/llama-server",
+  "model": "/external/storage/moe-bench/models/qwen36-UD-Q4_K_XL/Qwen3.6-35B-A3B-UD-Q4_K_XL.gguf",
+  "model_name": "qwen3.6-35b-a3b-ud-q4_k_xl",
+  "context": 32768,
+  "host": "127.0.0.1",
+  "port": 18081,
+  "artifact_manifest": "../results/qwen36-llama-artifact.json",
+  "lib_dirs": [
+    "/external/storage/moe-bench/ollama-0.40.6/lib/ollama",
+    "/external/storage/moe-bench/ollama-0.40.6/lib/ollama/cuda_v13"
+  ],
+  "args": [
+    "--gpu-layers",
+    "auto",
+    "--cpu-moe",
+    "--parallel",
+    "1",
+    "--jinja",
+    "--no-webui",
+    "--no-slots"
+  ],
+  "shards": [
+    {
+      "name": "Qwen3.6-35B-A3B-UD-Q4_K_XL.gguf",
+      "size": 22853663008,
+      "sha256": "55983c5a75a1ab969824077b3bb3de4146e82a9234072b48ad4e8f92ad3fe9f1"
+    }
+  ]
+}

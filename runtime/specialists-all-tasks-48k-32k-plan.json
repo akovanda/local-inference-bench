@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "name": "specialists standard 16K 12K-output screen",
+  "steps": [
+    {
+      "id": "quick_medium_32768",
+      "suite": "quick",
+      "thinking": "medium",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 32768,
+      "request_timeout": 14400,
+      "repeat": 1
+    },
+    {
+      "id": "hard_medium_32768",
+      "suite": "hard",
+      "thinking": "medium",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 32768,
+      "request_timeout": 14400,
+      "repeat": 1
+    }
+  ]
+}

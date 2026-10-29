@@ -1,0 +1,87 @@
+{
+  "args": [
+    "--gpu-layers",
+    "auto",
+    "--parallel",
+    "1",
+    "--jinja",
+    "--fit-ctx",
+    "73728",
+    "--reasoning",
+    "on",
+    "--reasoning-effort",
+    "medium",
+    "--reasoning-format",
+    "deepseek",
+    "--no-webui",
+    "--no-slots",
+    "--no-context-shift",
+    "--metrics",
+    "--api-key-file",
+    "/external/user/.config/local-general/backend-token",
+    "--temp",
+    "0"
+  ],
+  "artifact_manifest": "../../results/lfm25-qad-q4_0-artifact.json",
+  "context": 73728,
+  "gateway": {
+    "default_output_tokens": 8192,
+    "maximum_output_tokens": 65536
+  },
+  "host": "127.0.0.1",
+  "lib_dirs": [
+    "/external/storage/moe-bench/ollama-0.40.6/lib/ollama",
+    "/external/storage/moe-bench/ollama-0.40.6/lib/ollama/cuda_v13"
+  ],
+  "model": "/external/storage/moe-bench/models/lfm25-qad-q4_0/LFM2.5-24B-A2B-QAD-Q4_0.gguf",
+  "model_name": "lfm2.5-24b-a2b-qad-q4_0",
+  "placement": {
+    "all_gpu_fit_claimed": false,
+    "measurement_required": [
+      "actual_gpu_layer_count",
+      "peak_vram_bytes"
+    ],
+    "policy": "auto_best_fit"
+  },
+  "port": 18082,
+  "request_defaults": {
+    "reasoning_effort": "medium",
+    "temperature": 0
+  },
+  "runtime_validation": {
+    "inference_validated": false,
+    "llama_cpp_revision": "620d2225cc436ab0b001e3200e590e3b286ef9ab",
+    "load_validated": false
+  },
+  "schema_version": 1,
+  "server": "/external/storage/moe-bench/ollama-0.40.6/lib/ollama/llama-server",
+  "service": {
+    "api_key_file": "/external/user/.config/local-general/backend-token",
+    "artifact_verification": "full_sha256_each_start",
+    "competing_supervisor_receipt": "../../results/public-model-expansion-20261024-v1/launch.json",
+    "gpu_process_limit_mib": 256,
+    "original_container": "local-codex-ollama-cpu",
+    "original_model": "gpt-oss-20b:64k",
+    "original_ollama_url": "http://127.0.0.1:11436",
+    "shutdown_grace_seconds": 30,
+    "startup_timeout_seconds": 300,
+    "state_dir": "/external/user/.local/state/local-general"
+  },
+  "shards": [
+    {
+      "name": "LFM2.5-24B-A2B-QAD-Q4_0.gguf",
+      "sha256": "d1c03f73ecaf61017d70419eec9e5dc0b05d50ae26c23d522829b934fbabf8a5",
+      "size": 13578190880
+    }
+  ],
+  "source_config": {
+    "path": "../../runtime/public-benchmark-pilot-lfm72k-auto-v1.json",
+    "sha256": "e42f3a1f24f6295d25328d4edc1bb9b877aeadfbd68eb0ea33c2c0ccb29395c4"
+  },
+  "study_variant": {
+    "all_gpu_fit_claimed": false,
+    "output_cap": 65536,
+    "parent_config": "runtime/specialists-wide48k32k-lfm25-qad-q4_0-auto-48k.json",
+    "purpose": "Public benchmark pilot: identical 72K context and 64K output allowance as OSS; auto placement measured on load"
+  }
+}

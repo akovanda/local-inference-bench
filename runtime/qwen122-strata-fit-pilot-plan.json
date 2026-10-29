@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "name": "Experimental Strata122 8K fit and functional pilot",
+  "steps": [
+    {
+      "id": "quick-none-512",
+      "suite": "quick",
+      "thinking": "none",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 512,
+      "request_timeout": 600,
+      "repeat": 1
+    }
+  ]
+}

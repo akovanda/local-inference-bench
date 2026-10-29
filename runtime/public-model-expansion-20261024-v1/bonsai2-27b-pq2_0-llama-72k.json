@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "server": "/external/storage/moe-bench/bonsai2-llama-build-sm75/bin/llama-server",
+  "model": "/external/storage/moe-bench/models/bonsai2-27b/Ternary-Bonsai-2-27B-PQ2_0.gguf",
+  "model_name": "bonsai2-27b-pq2_0",
+  "context": 73728,
+  "host": "127.0.0.1",
+  "port": 18081,
+  "artifact_manifest": "results/bonsai2-runtime-artifact.json",
+  "lib_dirs": ["/external/storage/moe-bench/bonsai2-llama-build-sm75/bin", "/usr/local/cuda-13.0/lib64"],
+  "args": ["--gpu-layers", "all", "--fit", "off", "--parallel", "1", "--jinja", "--no-webui", "--no-slots", "--fit-ctx", "73728"],
+  "shards": [
+    {"name": "Ternary-Bonsai-2-27B-PQ2_0.gguf", "sha256": "3907dc1658db1f78a9826bf8d5bcb8dc65db0d466388937af57f2294fae62ec1", "size": 7206168928}
+  ],
+  "derived_from": "runtime/specialists-final72k64k-bonsai2-pq2_0-72k.json"
+}

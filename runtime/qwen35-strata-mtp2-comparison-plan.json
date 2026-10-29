@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "name": "Qwen35 Strata MTP2: repeated short controls, hard tasks, and matched automatic-budget thinking",
+  "steps": [
+    {
+      "id": "quick-none-512",
+      "suite": "quick",
+      "thinking": "none",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 512,
+      "request_timeout": 600,
+      "repeat": 3
+    },
+    {
+      "id": "hard-none-4096",
+      "suite": "hard",
+      "thinking": "none",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 4096,
+      "request_timeout": 1200,
+      "repeat": 1
+    },
+    {
+      "id": "hard-ledger-on-4096",
+      "suite": "hard",
+      "cases": ["hard_transaction_ledger"],
+      "thinking": "low",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 4096,
+      "request_timeout": 1200,
+      "repeat": 1
+    }
+  ]
+}

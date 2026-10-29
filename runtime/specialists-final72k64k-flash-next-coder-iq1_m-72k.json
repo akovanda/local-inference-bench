@@ -1,0 +1,45 @@
+{
+  "arch": "qwen4exp",
+  "args": [
+    "--pack",
+    "/external/storage/moe-bench/packs/flash-next-coder-iq1_m",
+    "--native",
+    "/external/storage/moe-bench/models/flash-next-coder-IQ1_M/Qwen3.8-Flash-Next-GSQ-RCO-IQ1_M-00001-of-00002.gguf",
+    "--ple-gguf",
+    "/external/storage/moe-bench/models/flash-next-coder-IQ1_M/Qwen3.8-Flash-Next-GSQ-RCO-IQ1_M-00002-of-00002.gguf",
+    "--ple-io",
+    "ram",
+    "--max-context",
+    "73728",
+    "--prefill",
+    "auto",
+    "--expert-profile",
+    "vendor/strata/data/expert-profile-coder.bin",
+    "--expert-cache",
+    "auto",
+    "--spec",
+    "4",
+    "--suffix-draft",
+    "0"
+  ],
+  "cwd": "vendor/strata",
+  "exe": "/external/storage/moe-bench/strata-build/strata",
+  "host": "127.0.0.1",
+  "lib_dirs": [
+    "/usr/local/cuda-13.0/lib64"
+  ],
+  "log": "results/specialists-final72k64k-flash-next-coder-iq1_m-strict-72k-engine.log",
+  "model_name": "qwen3.8-flash-next-coder-iq1_m",
+  "open_browser": false,
+  "port": 18080,
+  "reference_environment": {
+    "STRATA_ROUTE_TAIL_SKIP": "0",
+    "applied_by_this_config": false,
+    "caller_must_set_and_verify_in_runtime_events": true
+  },
+  "sampling": {
+    "presence_penalty": 0,
+    "temperature": 0
+  },
+  "tokenizer": "/external/storage/moe-bench/packs/flash-next-coder-iq1_m/tokenizer"
+}

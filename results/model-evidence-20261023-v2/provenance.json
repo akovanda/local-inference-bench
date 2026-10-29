@@ -1,0 +1,147 @@
+{
+  "generated_at": "2026-10-23T18:09:15+00:00",
+  "generator": "runtime/model_evidence_report_20261023.py",
+  "generator_sha256": "f9c22aaab2e8b597885a29d8dd67baa3cf6227e9ef73a162741cb5d0b33b5823",
+  "legacy_copy_sha256": "e8f5aa9ec475460db1dccc066cc756f90ba8f4b4e8225801aca6188411b7174e",
+  "outputs": {
+    "accelerator_rows": 6,
+    "detail_rows": 817,
+    "group_rows": 216,
+    "manual_review_rows": 40
+  },
+  "schema_version": 1,
+  "sources": [
+    {
+      "path": "results/complete-study-dashboard.csv",
+      "sha256": "e8f5aa9ec475460db1dccc066cc756f90ba8f4b4e8225801aca6188411b7174e"
+    },
+    {
+      "path": "results/public-benchmark-pilot-20261023-v1/manifest.json",
+      "sha256": "758607e95961b95ca98bdb2bdf11342b961239973dfcff73ff424c3a69603039"
+    },
+    {
+      "path": "results/public-benchmark-pilot-20261023-v1/continuation-status.json",
+      "sha256": "d4b5297d93f4d549d150ddaf52fc67a2ac3fd84f69ad86a02bde6ee7857ec691"
+    },
+    {
+      "path": "results/public-benchmark-pilot-20261023-v1/oss20b/grading/summary.json",
+      "sha256": "c4ed09355e6b46269cf347309760adb8a302a1c6862d3f630a6e8a2439d4e601"
+    },
+    {
+      "path": "results/public-benchmark-pilot-20261023-v1/lfm25/grading/summary.json",
+      "sha256": "c4b585a0d68d8b5706b4a0d133105683e2c13221c9a69f5da2dc00a904608f73"
+    },
+    {
+      "path": "results/tachyon-study-20261023-v1/manifest.json",
+      "sha256": "da6a70653695d317ac131d99eb09fe772cb8191c41d467345e9e3f4c11e90caf"
+    },
+    {
+      "path": "results/tachyon-study-20261023-v1/study-status.json",
+      "sha256": "a58f368f454101afde1ddb84e7b22216e8d049f6c3f37f56c7b2eaf23035fb4e"
+    },
+    {
+      "path": "results/tachyon-study-20261023-v1/bonsai2-2b/grading/summary.json",
+      "sha256": "30a743a5c205b077150dbc296487f1e695a7d917ade238bc1e529b5b4ff8e344"
+    },
+    {
+      "path": "results/tachyon-study-20261023-v1/bonsai2-4b/grading/summary.json",
+      "sha256": "3a6a2a893ede34f493f788a4ab6f3e62ad865f070a3b3a270f7686025c3853b5"
+    },
+    {
+      "path": "results/tachyon-study-20261023-v1/lfm25-26b/grading/summary.json",
+      "sha256": "686b060e1b787b9834897e1bcf8fabe3d633d8f632937d020e4f175da527afce"
+    },
+    {
+      "path": "results/tachyon-worker-study-20261023-v1/manifest.json",
+      "sha256": "c5ef1735ae4163a077b9033c11910e42939ffb6e4a34293abf50cb58c13ddc0d"
+    },
+    {
+      "path": "results/tachyon-worker-study-20261023-v1/study-status.json",
+      "sha256": "789bb5530159551e881d2a661c2011b995fedce985ce2afce286066af372c7c4"
+    },
+    {
+      "path": "results/tachyon-worker-study-20261023-v1/summary.json",
+      "sha256": "b3a62b940271257a7bf6c1b8c3fec8d5d85bb2ffaab7dd44c93af1d4796a0aa7"
+    },
+    {
+      "path": "results/tachyon-worker-study-20261023-v1/analysis/role-comparison.csv",
+      "sha256": "fc3c20102a0480a6bf5b144c3cceedee247add2f20f198e3d9243418a9756d49"
+    },
+    {
+      "path": "results/tachyon-worker-study-20261023-v1/analysis/manual-summary-review.json",
+      "sha256": "0467320098664a712f073e9ef9dc3b3cc80f5a7a7527eab859faea66988f1f7f"
+    },
+    {
+      "path": "results/tachyon-worker-latency-20261023-v1/trial-status.json",
+      "sha256": "928858638a0707a44fa330993810f5dacccad494d332f9a9546f41de2520349b"
+    },
+    {
+      "path": "results/tachyon-worker-latency-20261023-v1/summary.json",
+      "sha256": "2e19c2ff3e83350a1f2c5e878be811a7bad538998e7d55414ce9f99bb2a948f9"
+    },
+    {
+      "path": "results/tachyon-worker-latency-20261023-v1/greedy-diagnostic/summary.json",
+      "sha256": "72f53631d96fc3a16957ebc20b45b82ebded508e2ecd1d469a1e30d9c525505f"
+    },
+    {
+      "path": "results/tachyon-study-20261023-v1/gpu-trial/summary.json",
+      "sha256": "4982f131452ca9fe13020e44536cdb9e7881b16498552ff88ff1381866cbabbb"
+    },
+    {
+      "path": "results/tachyon-worker-latency-20261023-v1/opencl-generic-ngl4-result.json",
+      "sha256": "7256cedecbacde6d3ed99ace01d0ad449ba73439b34ed2a5e164ae2e6fc7ace4"
+    },
+    {
+      "path": "results/tachyon-study-20261023-v1/qnn-llm-compatibility.json",
+      "sha256": "fab205369d1a34d5643f19fb7759822f5f7679324beefbf1c578cf4457eb5309"
+    },
+    {
+      "path": "results/public-benchmark-pilot-20261023-v1/final-paired-comparison.json",
+      "sha256": "6747724ea08a5b4e771ee6089f90fd06631b001754f7564daa991adfaf9141a6"
+    },
+    {
+      "path": "results/public-benchmark-pilot-20261023-v1/official-grader-caveats.json",
+      "sha256": "40ab7548aae035988f34bf0af48ab63cfddfbcf3e3f4f49be36ec40580d5c67d"
+    },
+    {
+      "path": "results/tachyon-role-study-20261023-v1/study-status.json",
+      "sha256": "fe53a21a1673a0867afa09d04dfa072f2f372a8bf3c8332ade71731b5bcd008f"
+    },
+    {
+      "path": "results/tachyon-role-study-20261023-v1/source-pins.json",
+      "sha256": "adb62aa9ca91a5bac49f87ead343531dcab959728700bf6c2500fac8948c0164"
+    },
+    {
+      "path": "results/tachyon-role-study-20261023-v1/lfm-fast-profile-interrupt.json",
+      "sha256": "73d91dbbfba0c8cfc520607774443dfed0a04ee16e2cc4c0ae841bcde54bbffc"
+    },
+    {
+      "path": "results/tachyon-role-study-20261023-v2/study-status.json",
+      "sha256": "3f507bbf1ee4f15ec539f09eec7aaf27547f77f57f5ccfc79825e73215275bad"
+    },
+    {
+      "path": "results/tachyon-role-study-20261023-v2/source-pins.json",
+      "sha256": "442128247b8cfafeb30a730499908f17e11d2437d9a2d281e3329e91b27c23c6"
+    },
+    {
+      "path": "results/tachyon-role-study-20261023-v2/production-priority-interrupt.json",
+      "sha256": "05b2f70e903dfec82e3b94f4a29c9cdc38f5909a084ea263293436ae19cdfc37"
+    },
+    {
+      "path": "results/tachyon-study-20261023-v1/qnn-readiness.json",
+      "sha256": "fec393a28349b84330256be5420de98d3709a795c728fb409ffd74ba3c10e62a"
+    },
+    {
+      "path": "results/tachyon-study-20261023-v1/opencl-runtime-build.json",
+      "sha256": "4a35945df5ac4c68aa3cca8fdd3dfedaaad8ae4c140c2b095252cf7a6d255da9"
+    },
+    {
+      "path": "results/tachyon-study-20261023-v1/opencl-generic-runtime-build.json",
+      "sha256": "5361184de9611a881c02aaf34f70379dd99865ecb1951780546d4a3985974ec2"
+    },
+    {
+      "path": "results/tachyon-worker-latency-20261023-v1/remote-artifact-verification.json",
+      "sha256": "be73d65b06abe856633a7a4bf59f825801519ce660caf3ccdf0bea87ac13eefe"
+    }
+  ]
+}

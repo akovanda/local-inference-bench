@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "name": "Bounded short-generation and new-code screen for EAGLE draft cost",
+  "steps": [
+    {
+      "id": "quick-low-512",
+      "suite": "quick",
+      "thinking": "low",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 512,
+      "request_timeout": 600,
+      "repeat": 2
+    },
+    {
+      "id": "new-code-screen-low-2048",
+      "suite": "quality",
+      "cases": [
+        "quality_stable_toposort"
+      ],
+      "thinking": "low",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 2048,
+      "request_timeout": 900,
+      "repeat": 1
+    }
+  ]
+}

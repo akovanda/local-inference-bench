@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "label": "lfm25-native-thinking-budget-code-t0",
+  "claim": "custom_experiment",
+  "sources": [],
+  "sampler_overrides": {
+    "temperature": 0.0
+  },
+  "notes": "Native forced-thinking-budget diagnostic on frozen coding cases. Medium template mode remains requested. Total output allowance, native thinking budget and timeout come from caller controls; all other resident samplers are inherited and recorded."
+}

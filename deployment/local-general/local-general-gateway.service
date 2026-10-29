@@ -1,0 +1,27 @@
+[Unit]
+Description=Local General authenticated model API and integration guide
+After=network-online.target local-general-backend.service
+Wants=network-online.target local-general-backend.service
+StartLimitIntervalSec=300
+StartLimitBurst=5
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/local-inference-bench
+EnvironmentFile=/etc/local-inference-bench/service.env
+ExecStart=/opt/local-inference-bench/.venv/bin/python -m local_general
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=45
+KillMode=control-group
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target

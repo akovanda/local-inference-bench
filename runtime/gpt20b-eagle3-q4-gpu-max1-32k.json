@@ -1,0 +1,52 @@
+{
+  "args": [
+    "--gpu-layers",
+    "auto",
+    "--parallel",
+    "1",
+    "--jinja",
+    "--chat-template-file",
+    "vendor/strata/third_party/llama.cpp/models/templates/openai-gpt-oss-120b.jinja",
+    "--no-webui",
+    "--no-slots",
+    "--spec-type",
+    "draft-eagle3",
+    "--spec-draft-model",
+    "/external/storage/moe-bench/models/gpt20b-eagle3-Q4_0-derived/eagle3-gpt-oss-20b-Q4_0-target-tokenizer.gguf",
+    "--spec-draft-n-max",
+    "1",
+    "--spec-draft-n-min",
+    "0",
+    "--spec-draft-p-min",
+    "0.0",
+    "--spec-draft-type-k",
+    "f16",
+    "--spec-draft-type-v",
+    "f16",
+    "--spec-draft-ngl",
+    "auto"
+  ],
+  "artifact_manifest": "../results/gpt20b-llama-artifact.json",
+  "context": 32768,
+  "draft_artifact_manifest": "../results/gpt20b-eagle3-q4-artifact.json",
+  "draft_max_tokens": 1,
+  "draft_profile": "gpu_q4_0_max1",
+  "draft_quantization": "Q4_0",
+  "host": "127.0.0.1",
+  "lib_dirs": [
+    "/external/storage/moe-bench/ollama-0.40.6/lib/ollama",
+    "/external/storage/moe-bench/ollama-0.40.6/lib/ollama/cuda_v13"
+  ],
+  "model": "/external/models/run/ollama/models/blobs/sha256-e7b273f9636059a689e3ddcab3716e4f65abe0143ac978e46673ad0e52d09efb",
+  "model_name": "gpt-oss-20b-mxfp4",
+  "port": 18081,
+  "schema_version": 1,
+  "server": "/external/storage/moe-bench/ollama-0.40.6/lib/ollama/llama-server",
+  "shards": [
+    {
+      "name": "sha256-e7b273f9636059a689e3ddcab3716e4f65abe0143ac978e46673ad0e52d09efb",
+      "sha256": "e7b273f9636059a689e3ddcab3716e4f65abe0143ac978e46673ad0e52d09efb",
+      "size": 13793422144
+    }
+  ]
+}

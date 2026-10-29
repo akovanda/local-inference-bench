@@ -1,0 +1,41 @@
+{
+  "args": [
+    "--gpu-layers",
+    "auto",
+    "--parallel",
+    "1",
+    "--jinja",
+    "--chat-template-file",
+    "vendor/strata/third_party/llama.cpp/models/templates/openai-gpt-oss-120b.jinja",
+    "--no-webui",
+    "--no-slots",
+    "--fit-ctx",
+    "73728"
+  ],
+  "artifact_manifest": "../results/gpt20b-llama-artifact.json",
+  "context": 73728,
+  "host": "127.0.0.1",
+  "lib_dirs": [
+    "/external/storage/moe-bench/ollama-0.40.6/lib/ollama",
+    "/external/storage/moe-bench/ollama-0.40.6/lib/ollama/cuda_v13"
+  ],
+  "model": "/external/models/run/ollama/models/blobs/sha256-e7b273f9636059a689e3ddcab3716e4f65abe0143ac978e46673ad0e52d09efb",
+  "model_name": "gpt-oss-20b-mxfp4",
+  "port": 18081,
+  "schema_version": 1,
+  "server": "/external/storage/moe-bench/ollama-0.40.6/lib/ollama/llama-server",
+  "shards": [
+    {
+      "name": "sha256-e7b273f9636059a689e3ddcab3716e4f65abe0143ac978e46673ad0e52d09efb",
+      "sha256": "e7b273f9636059a689e3ddcab3716e4f65abe0143ac978e46673ad0e52d09efb",
+      "size": 13793422144
+    }
+  ],
+  "study_variant": {
+    "purpose": "Final GPT20B baseline after remaining64K-output candidate cohort",
+    "parent_config": "runtime/gpt20b-llama-specialists-48k-wide.json",
+    "parent_config_sha256": "8b897a3421ac3a9330b0709f1daa652ef0658a4f19fea2ecdd836198ed5555f8",
+    "output_controls": "Explicit study plan/CLI output cap65536,timeout21600;context73728",
+    "all_gpu_fit_claimed": false
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "name": "Public expansion transport-only smoke; semantic answer is not a gate",
+  "steps": [
+    {
+      "id": "transport-smoke",
+      "suite": "quick",
+      "cases": ["quick_generation"],
+      "thinking": "none",
+      "temperature": 0.0,
+      "seed": 20261024,
+      "output_tokens": 32,
+      "request_timeout": 600.0
+    }
+  ]
+}

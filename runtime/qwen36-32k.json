@@ -1,0 +1,18 @@
+{
+  "exe": "/external/storage/moe-bench/strata-build/strata",
+  "args": [
+    "--native", "/external/storage/moe-bench/models/qwen36-UD-Q4_K_XL/Qwen3.6-35B-A3B-UD-Q4_K_XL.gguf",
+    "--max-context", "32768",
+    "--prefill", "auto",
+    "--mtp", "2"
+  ],
+  "cwd": "vendor/strata",
+  "tokenizer": "runtime/strata-data/packs/qwen36-ud-q4_k_xl/tokenizer",
+  "model_name": "qwen3.6-35b-a3b-ud-q4_k_xl",
+  "arch": "qwen35moe",
+  "log": "results/strata-qwen36-engine.log",
+  "lib_dirs": ["/usr/local/cuda-13.0/lib64"],
+  "host": "127.0.0.1",
+  "port": 18080,
+  "open_browser": false
+}

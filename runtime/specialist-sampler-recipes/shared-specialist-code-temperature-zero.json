@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "label": "shared-specialist-code-temperature-zero",
+  "claim": "custom_experiment",
+  "sources": [],
+  "sampler_overrides": {
+    "temperature": 0.0
+  },
+  "notes": "Same T0 as canonical coding tests. All other active server sampler defaults are inherited and recorded. Used with explicit trained non-thinking template mode to compare to canonical medium-thinking T0; output cap and timeouts remain caller controls."
+}

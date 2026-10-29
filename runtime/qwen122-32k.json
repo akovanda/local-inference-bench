@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "server": "/external/storage/moe-bench/ollama-0.40.6/lib/ollama/llama-server",
+  "model": "/external/storage/moe-bench/models/qwen122-UD-Q4_K_XL/Qwen3.5-122B-A10B-UD-Q4_K_XL-00001-of-00003.gguf",
+  "model_name": "qwen3.5-122b-a10b-ud-q4_k_xl",
+  "context": 32768,
+  "host": "127.0.0.1",
+  "port": 18081,
+  "artifact_manifest": "../results/qwen122-artifact.json",
+  "lib_dirs": [
+    "/external/storage/moe-bench/ollama-0.40.6/lib/ollama",
+    "/external/storage/moe-bench/ollama-0.40.6/lib/ollama/cuda_v13"
+  ],
+  "args": [
+    "--gpu-layers",
+    "auto",
+    "--cpu-moe",
+    "--parallel",
+    "1",
+    "--jinja",
+    "--no-webui",
+    "--no-slots"
+  ],
+  "shards": [
+    {
+      "name": "Qwen3.5-122B-A10B-UD-Q4_K_XL-00001-of-00003.gguf",
+      "size": 10943552,
+      "sha256": "467c9bd92ea518539cf75bf5a5fbfbd35e9a0b40d766ccaa67bf120e12041df3"
+    },
+    {
+      "name": "Qwen3.5-122B-A10B-UD-Q4_K_XL-00002-of-00003.gguf",
+      "size": 49640779424,
+      "sha256": "ecdbd42d43b0df9fa0ef9a584e09e95a43966ef03a122aba0b87a99d44d9ad98"
+    },
+    {
+      "name": "Qwen3.5-122B-A10B-UD-Q4_K_XL-00003-of-00003.gguf",
+      "size": 27378273056,
+      "sha256": "13300e0f059e6fa21aa0fabde2a554f9deea366c0e54f268045769b214b28c97"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-23T18:04:32.973916+00:00",
+  "official_grades_unchanged": true,
+  "notes": [
+    {
+      "model": "lfm25",
+      "suite": "ifeval",
+      "task_id": "3071",
+      "official_strict_pass": false,
+      "instruction_id": "detectable_format:number_highlighted_sections",
+      "observation": "Answer contains three Markdown level-2 headings. Official checker counts nonempty asterisk-delimited emphasized spans; it does not count headings.",
+      "interpretation": "This official failure measures the checker-specific emphasis convention, not whether the rap is coherent or whether there are three visually separated sections. No semantic regrade was substituted.",
+      "checker_source": "vendor/public-benchmarks/google-research-e6890f85757dd84e27ca6df2dd30651dafad28e0/instruction_following_eval/instructions.py",
+      "checker_source_line": 453
+    }
+  ],
+  "scope": "IFEval measures specified instruction/format compliance. It is not a factual knowledge or grounded-summary faithfulness score."
+}

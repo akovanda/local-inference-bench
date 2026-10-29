@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "label": "KAT thinking API example adapted to native sampler",
+  "claim": "publisher_inspired",
+  "sources": [
+    "https://huggingface.co/Kwaipilot/KAT-Coder-V2.5-Dev"
+  ],
+  "sampler_overrides": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 20,
+    "presence_penalty": 1.5,
+    "min_p": 0.0,
+    "repeat_penalty": 1.0
+  },
+  "notes": "Card API example supplies temperature/top_p/top_k/presence_penalty. min_p=0 and repeat_penalty=1 are explicit experiment choices to control additional native filtering; the card does not specify them in this example. This does not replicate published agent benchmarks."
+}

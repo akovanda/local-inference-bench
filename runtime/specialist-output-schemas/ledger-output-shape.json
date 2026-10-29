@@ -1,0 +1,61 @@
+{
+  "type": "object",
+  "properties": {
+    "balances": {
+      "type": "object",
+      "properties": {
+        "A": {
+          "type": "integer"
+        },
+        "B": {
+          "type": "integer"
+        },
+        "C": {
+          "type": "integer"
+        },
+        "D": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "additionalProperties": false
+    },
+    "effective_transfer_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rollback_order": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ignored_duplicate_event_lines": {
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    },
+    "no_op_rollback_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "balances",
+    "effective_transfer_ids",
+    "rollback_order",
+    "ignored_duplicate_event_lines",
+    "no_op_rollback_ids"
+  ],
+  "additionalProperties": false
+}

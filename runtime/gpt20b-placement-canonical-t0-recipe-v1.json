@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "label": "Canonical shared greedy T0 for GPT20B placement comparison",
+  "claim": "custom_experiment",
+  "sources": [],
+  "sampler_overrides": {
+    "temperature": 0
+  },
+  "notes": "This preserves the primary greedy temperature; other sampler fields inherit the same native-server defaults. Both frozen resident-probe helpers set seed0; use MED for all selected hard/code cases. This is a placement comparison, not a publisher sampler change."
+}

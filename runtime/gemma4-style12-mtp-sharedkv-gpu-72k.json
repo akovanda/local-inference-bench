@@ -1,0 +1,58 @@
+{
+  "args": [
+    "--gpu-layers",
+    "all",
+    "--parallel",
+    "1",
+    "--jinja",
+    "--no-webui",
+    "--no-slots",
+    "--fit-ctx",
+    "73728",
+    "--fit",
+    "off",
+    "--spec-type",
+    "draft-mtp",
+    "--spec-draft-model",
+    "/external/storage/moe-bench/models/gemma4-12b-mtp/mtp-gemma-4-12B-it-Q8_0.gguf",
+    "--spec-draft-n-max",
+    "3",
+    "--spec-draft-ngl",
+    "all"
+  ],
+  "artifact_manifest": "../results/gemma4-style12-q5_k_m-artifact.json",
+  "context": 73728,
+  "host": "127.0.0.1",
+  "lib_dirs": [
+    "/external/storage/moe-bench/ollama-0.40.6/lib/ollama",
+    "/external/storage/moe-bench/ollama-0.40.6/lib/ollama/cuda_v13"
+  ],
+  "model": "/external/storage/moe-bench/models/gemma4-style12-q5_k_m/Gemma-4-12B-StyleTune.Q5_K_M.gguf",
+  "model_name": "gemma-4-12b-styletune-q5_k_m",
+  "placement": {
+    "all_gpu_fit_claimed": false,
+    "fit": "off",
+    "measurement_required": [
+      "actual_gpu_layer_count",
+      "peak_vram_bytes"
+    ],
+    "policy": "strict_all_layers_fit_off",
+    "requested_gpu_layers": "all"
+  },
+  "port": 18081,
+  "runtime_validation": {
+    "inference_validated": false,
+    "llama_cpp_revision": "620d2225cc436ab0b001e3200e590e3b286ef9ab",
+    "load_validated": false,
+    "strict_gpu_residency_validated": false
+  },
+  "schema_version": 1,
+  "server": "/external/storage/moe-bench/ollama-0.40.6/lib/ollama/llama-server",
+  "shards": [
+    {
+      "name": "Gemma-4-12B-StyleTune.Q5_K_M.gguf",
+      "sha256": "14d78cfccb5f052a9c4bfcdceac30fae570a09dea4453c7d929fa57f703ff350",
+      "size": 9239328384
+    }
+  ]
+}

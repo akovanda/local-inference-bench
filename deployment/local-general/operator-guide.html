@@ -1,0 +1,90 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Local General — operator guide</title><style>body{max-width:960px;margin:40px auto;padding:0 24px;font:16px/1.65 system-ui;color:#192436}h1,h2{line-height:1.25}h2{margin-top:2em}pre{padding:16px;background:#f0f3f8;overflow:auto;border-radius:6px}code{font-size:.91em}table{border-collapse:collapse;width:100%}td,th{padding:10px;text-align:left;border-bottom:1px solid #ddd}a{color:#1359ae}</style></head><body>
+<h1>Local General operator guide</h1>
+<p>This file is for the UCS service owner. The shareable integration guide is <a href="https://device.example.invalid:8446/docs">https://device.example.invalid:8446/docs</a>. It is served from <code>deployment/local-general/user-guide.html</code>. This operator file is not a gateway route.</p>
+<h2>Deployment</h2>
+<table><tr><th>Component</th><th>Location / setting</th></tr>
+<tr><td>Model API and public guide</td><td><code>https://device.example.invalid:8446</code>, private Tailscale Serve HTTPS</td></tr>
+<tr><td>Gateway</td><td><code>127.0.0.1:11441</code>, <code>local-general-gateway.service</code> in the user's systemd instance</td></tr>
+<tr><td>LFM backend</td><td><code>127.0.0.1:18082</code>, <code>local-general-backend.service</code></td></tr>
+<tr><td>Gateway source</td><td><code>local_general/</code></td></tr>
+<tr><td>Backend runner and config</td><td><code>deployment/local-general/run_backend.py</code> and <code>lfm-backend.json</code></td></tr>
+<tr><td>Python environment</td><td><code>.venv-local-general</code></td></tr>
+<tr><td>Deployed Python versions</td><td><code>deployment/local-general/requirements.lock.txt</code></td></tr>
+<tr><td>Runtime configuration</td><td><code>/external/user/.config/local-general/service.env</code></td></tr>
+<tr><td>API key</td><td><code>/external/user/.config/local-general/api-token</code>, owner-readable, never included in the guide or deployment receipt</td></tr>
+<tr><td>Backend state / logs</td><td><code>/external/user/.local/state/local-general/</code></td></tr>
+<tr><td>Deployment evidence</td><td><code>results/local-general-service-20261024-v1/</code></td></tr>
+</table>
+<p>Systemd user lingering is enabled on this machine. Both units are enabled for user startup and restart after a process failure. The backend verifies the existing model's size, immutable receipt, and SHA-256 on startup. Its private GPU allocation is independent of gateway restarts.</p>
+<h2>Check and restart</h2>
+<pre><code>systemctl --user status local-general-backend.service local-general-gateway.service
+curl --fail http://127.0.0.1:11441/healthz
+curl --fail http://127.0.0.1:11441/readyz
+journalctl --user -u local-general-gateway.service -n 80 --no-pager
+journalctl --user -u local-general-backend.service -n 80 --no-pager
+
+# Gateway-only restart: leaves LFM loaded.
+systemctl --user restart local-general-gateway.service
+
+# Backend restart: interrupts generation and reloads LFM.
+systemctl --user restart local-general-backend.service</code></pre>
+<p>A successful liveness check proves the gateway process is up. A successful readiness check proves that the backend health route is responding; neither is a semantic quality check. Initial loading includes artifact verification and GPU placement.</p>
+<h2>Give a client access</h2>
+<p>Share the user-guide URL, confirm its machine has Tailscale access to UCS port 8446, and provide the API key through your existing secret-distribution method. The key is shared by clients in this initial deployment. There are no per-client quotas or per-user usage reports. Generation requires Bearer authentication even over loopback. Do not paste the key into documentation, source control, issue trackers, or shell command arguments.</p>
+<p>Clients use <code>local-general</code>. The explicit migration alias <code>gpt-oss-20b:64k</code> selects the same LFM backend. Changing that alias or API policy requires updating the environment file and restarting the gateway.</p>
+<h2>Rotate the API key</h2>
+<p>The gateway reads its token file on startup. Rotation replaces the single accepted key; clients must update their configured secret.</p>
+<pre><code>python3 - &lt;&lt;'PY'
+from pathlib import Path
+import os, secrets
+p = Path('/external/user/.config/local-general/api-token')
+temporary = p.with_suffix('.new')
+fd = os.open(temporary, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+with os.fdopen(fd, 'w') as f:
+    f.write(secrets.token_urlsafe(48) + '\n')
+    f.flush()
+    os.fsync(f.fileno())
+os.replace(temporary, p)
+PY
+systemctl --user restart local-general-gateway.service</code></pre>
+<h2>GPU ownership and the benchmark</h2>
+<p>The T4 is dedicated to this service. The previous serial public benchmark was checkpointed with its identity-verified supervisor's normal SIGTERM cleanup. Two profiles are fully completed; Flash Next Coder has 40 completed cases and an interrupted request to retry. All old scores, requests, and partial-stream evidence are preserved. A separate checkpoint receipt records the reason and original resume command.</p>
+<p>While LFM is running, its supervisor owns the GPU and temporarily pauses the original <code>local-codex-ollama-cpu</code> container. This prevents an old OSS request or a benchmark window from loading another model into the same GPU. Stopping the backend cleans up its own server process and restores that container. Its original image, model files, port mapping, and configuration are preserved.</p>
+<p>To resume the benchmark, first schedule a service outage and stop both service units. Use the saved command; the benchmark resumes unfinished cases, preserving prior attempts.</p>
+<pre><code>systemctl --user stop local-general-gateway.service local-general-backend.service
+
+# Verify the backend stopped and the original container was restored.
+docker inspect --format '{{json .State}}' local-codex-ollama-cpu
+nvidia-smi --query-compute-apps=pid,process_name,used_memory --format=csv
+
+cd .
+.venv-public-bench/bin/python runtime/public_model_expansion.py launch \
+  --study-dir results/public-model-expansion-20261024-v1 \
+  --manifest results/public-benchmark-pilot-20261023-v1/manifest.json \
+  --catalog runtime/public-model-expansion-20261024-v1/profile-catalog.json \
+  --python .venv-public-bench/bin/python \
+  --grade-image moe-public-benchmark-grader:20261023-v1 \
+  --external-poll-seconds 30 \
+  --runner-retries-per-window 3 \
+  --max-windows-per-profile 32</code></pre>
+<p>The backend deliberately refuses to start while the benchmark supervisor is alive. Stop the benchmark through its owned supervisor and verify clean restoration before starting LFM again. Do not remove safety guards or signal unknown GPU processes to force a start.</p>
+<h2>Configuration and measured behavior</h2>
+<p>The backend uses the same existing QAD-Q4_0 artifact and 73,728-token context as the completed LFM public benchmark, with automatic GPU placement and one model slot. Reasoning is separated into its own response field. The gateway defaults to 8,192 output tokens and permits explicit requests up to 65,536, subject to actual remaining context. The backend owns exact tokenization and context enforcement. Output and queue limits are in <code>service.env</code>; model placement is in <code>lfm-backend.json</code>.</p>
+<p>OpenAI <code>reasoning_effort</code> low/medium/high is accepted as ignored compatibility metadata. Ollama <code>think</code> controls exposed reasoning only. LFM still reasons internally. A token cap may therefore expire before the final answer. Do not describe these flags as disabling reasoning or promise the single-request benchmark throughput to simultaneous clients.</p>
+<p>The gateway does not store prompts or generated answers in logs. The backend runs without verbose prompt logging. The deployment smoke-test outputs are synthetic examples stored separately as explicit verification artifacts.</p>
+<h2>Model sourcing</h2>
+<p>The standing sourcing policy is saved in <code>/external/user/.codex/AGENTS.md</code>: prefer original developers, accept traceable reputable quantizations when useful, and push back firmly on weak provenance, misleading claims, opaque packaging, and poor evidence of usefulness. Routine credible choices should continue without extra approval gates. Experiments stay clearly labeled and separate from shared services.</p>
+<p>This endpoint uses Liquid AI's own GGUF release at revision <code>0912d33141f77e10705345a6732bfd83f0252fdc</code>, with model SHA-256 <code>d1c03f73ecaf61017d70419eec9e5dc0b05d50ae26c23d522829b934fbabf8a5</code>. Deployment independently checked the pinned revision's Hugging Face LFS metadata against that hash, and startup rechecks the full local file.</p>
+<p>The model-source audit is <code>results/local-general-service-20261024-v1/model-source-audit.json</code>. It identifies Unsloth and bartowski quantizations, ISTA-DASLab research variants, developer-published Bonsai, and the already-deferred community Gemma StyleTune separately. The original local OSS artifact has a fixed hash; its complete upstream lineage was not independently established by this audit. A mismatch with today's mutable registry tag is not evidence of malicious alteration.</p>
+<p>Weights in a data format can still produce deliberately manipulated behavior, and runtime parsers need ordinary software maintenance. A matching hash, malware-scan badge, or a good benchmark score cannot establish that trained weights have no hidden trigger. This service returns text and proposed tool calls; callers retain control of tool execution and authorization. No model repository's Python code is needed to load this pinned GGUF.</p>
+<h2>Network routing and rollback</h2>
+<p>Only Tailscale Serve port 8446 is added. Existing Serve handlers and Funnel configuration are snapshotted in deployment evidence and remain intact. Both application listeners bind to loopback. The route is private to the tailnet and follows its existing policy.</p>
+<pre><code>tailscale serve status
+
+# Remove only this service's HTTPS route, preserving every other route.
+tailscale serve --https=8446 off
+
+# Stop startup and release the service's model/GPU.
+systemctl --user disable --now local-general-gateway.service local-general-backend.service</code></pre>
+<p>Stopping the backend restores the original OSS container; it does not overwrite or delete the benchmark or either model. Initial deployment and test receipts, including source and dependency hashes, are in the deployment evidence directory.</p>
+</body></html>

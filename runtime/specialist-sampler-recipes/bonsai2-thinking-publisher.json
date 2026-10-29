@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "label": "Bonsai2 published thinking sampler",
+  "claim": "full_allowlisted_recipe",
+  "sources": [
+    "https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf"
+  ],
+  "sampler_overrides": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 20,
+    "min_p": 0.05,
+    "presence_penalty": 0.0,
+    "repeat_penalty": 1.0
+  },
+  "notes": "All six published thinking sampler values are explicit. Study requests medium reasoning, which publisher recommends for shorter responses; output/context budget is separately recorded."
+}

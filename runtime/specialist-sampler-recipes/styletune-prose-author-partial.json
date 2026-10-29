@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "label": "StyleTune author temperature/min-p check",
+  "claim": "publisher_inspired",
+  "sources": [
+    "https://huggingface.co/Gryphe/Gemma-4-12B-StyleTune"
+  ],
+  "sampler_overrides": {
+    "temperature": 1.0,
+    "min_p": 0.1
+  },
+  "notes": "Author reports temperature1.0/min_p0.10 and DRY without specifying its parameters. This recipe tests the two numeric settings only; it does not claim a full reproduction or enable DRY."
+}

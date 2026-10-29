@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "label": "kat-nonthinking-code-api-example-native",
+  "claim": "publisher_inspired",
+  "sources": [
+    "https://huggingface.co/Kwaipilot/KAT-Coder-V2.5-Dev"
+  ],
+  "sampler_overrides": {
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "presence_penalty": 1.5,
+    "min_p": 0.0,
+    "repeat_penalty": 1.0
+  },
+  "notes": "Non-thinking API example supplies first four settings; min_p=0 and repeat_penalty=1 are explicit native experiment choices. Caller must request prose thinking none. Applied to coding in this labeled experiment; these are the published non-thinking API example settings, not a coding-specific accuracy claim."
+}

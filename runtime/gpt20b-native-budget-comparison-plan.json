@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "name": "Original GPT-OSS20B weights in native Harmony runtime before bounded medium-thinking followups",
+  "steps": [
+    {
+      "id": "quick-low-512",
+      "suite": "quick",
+      "thinking": "low",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 512,
+      "request_timeout": 600,
+      "repeat": 2
+    },
+    {
+      "id": "hard-low-4096",
+      "suite": "hard",
+      "thinking": "low",
+      "temperature": 0,
+      "seed": 0,
+      "output_tokens": 4096,
+      "request_timeout": 1200,
+      "repeat": 1
+    }
+  ]
+}

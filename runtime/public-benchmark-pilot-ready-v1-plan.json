@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "name": "Public pilot server readiness only, unscored warmup",
+  "steps": [
+    {
+      "id": "ready",
+      "suite": "quick",
+      "cases": [
+        "quick_generation"
+      ],
+      "thinking": "medium",
+      "temperature": 0.0,
+      "seed": 20261023,
+      "output_tokens": 32,
+      "request_timeout": 120.0
+    }
+  ]
+}
