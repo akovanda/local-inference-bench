@@ -33,7 +33,7 @@ python -m pip install -e '.[test]'
 python bench.py --list-cases
 ```
 
-Download `local-inference-bench-evidence-v0.1.0.tar.gz` and `SHA256SUMS` from the `v0.1.0` GitHub release into the repository root. The archive is distributed separately to keep source history small. Verify and extract it there:
+Download [`local-inference-bench-evidence-v0.1.0.tar.gz`](https://github.com/akovanda/local-inference-bench/releases/download/v0.1.0/local-inference-bench-evidence-v0.1.0.tar.gz) and [`SHA256SUMS`](https://github.com/akovanda/local-inference-bench/releases/download/v0.1.0/SHA256SUMS) from the [`v0.1.0` release](https://github.com/akovanda/local-inference-bench/releases/tag/v0.1.0) into the repository root. The archive is distributed separately to keep source history small. Verify and extract it there:
 
 ```bash
 sha256sum -c SHA256SUMS
